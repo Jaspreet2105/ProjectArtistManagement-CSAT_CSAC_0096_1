@@ -1,0 +1,57 @@
+﻿using System;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace ArtistManagementProject_Group_CSAT_0096_1_
+{
+    public partial class SignUp : System.Web.UI.Page
+    {
+        string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btn_SignUp_Click(object sender, EventArgs e)
+        {
+            //Response.Write("<script>alert('testing');</script>");
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                string query = "INSERT INTO users(UserId,EmailAddress,Password,ConfirmPassword,FirstName,LastName,DateOfBirth,AccessType,RequestStatus)VALUES(@UserId,@EmailAddress,@Password,@ConfirmPassword,@FirstName,@LastName,@DateOfBirth,@AccessType,@RequestStatus)";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@UserId", txt_UserId.Text.Trim());
+                cmd.Parameters.AddWithValue("@EmailAddress", txt_Email.Text.Trim());
+                cmd.Parameters.AddWithValue("@Password", txt_Password.Text.Trim());
+                cmd.Parameters.AddWithValue("@ConfirmPassword", txt_ConfirmPassword.Text.Trim());
+                cmd.Parameters.AddWithValue("@FirstName", txt_FirstName.Text.Trim());
+                cmd.Parameters.AddWithValue("@LastName", txt_LastName.Text.Trim());
+                cmd.Parameters.AddWithValue("@DateOfBirth", txt_Dob.Text.Trim());
+                cmd.Parameters.AddWithValue("@AccessType", "Artist");
+                cmd.Parameters.AddWithValue("@RequestStatus", "Pending");
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                Response.Write("<script> alert('Your Registration is Successfull') </ script >");
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('"+ex.Message+ "')</script>");
+
+            }
+        }
+    }
+}
