@@ -44,12 +44,14 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                 cmd.ExecuteNonQuery();
                 con.Close();
 
-                Response.Write("<script> alert('Your Registration is Successfull') </ script >");
-
+                Response.Write("<script>alert('Registration Successful. ');</script>");
             }
+
+           
+            
             catch (Exception ex)
             {
-                Response.Write("<script>alert('"+ex.Message+ "')</script>");
+                Response.Write("<script>alert('"+ex.Message+"')</script>");
 
             }
         }

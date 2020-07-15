@@ -30,7 +30,7 @@
                      <div class="col">
                         <label>User Name</label>
                         <div class="form-group">
-                           <asp:TextBox CssClass="form-control" ID="txt_UserName" runat="server" placeholder="User Name"></asp:TextBox>
+                           <asp:TextBox CssClass="form-control" ID="txt_UserId" runat="server" placeholder="User Name"></asp:TextBox>
                         </div>
                         <label>Password</label>
                         <div class="form-group">
