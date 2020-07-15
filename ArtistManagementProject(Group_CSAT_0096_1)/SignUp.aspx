@@ -56,7 +56,7 @@
                         </div>
                          <label>Date of Birth </label>
                         <div class="form-group">
-                           <asp:TextBox CssClass="form-control" ID="txt_Dob" runat="server" placeholder="Date of Birth" TextMode="DateTime"></asp:TextBox>
+                        <input type="date" class="form-control" ID="txt_Dob" runat="server" placeholder="Date of Birth" />
                         </div> 
                         <div class="form-group">
                             <asp:Button class="btn btn-info btn-block btn-lg" ID="btn_SignUp" runat="server" Text="SignUp" OnClick="btn_SignUp_Click"  />

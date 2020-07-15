@@ -40,7 +40,7 @@
                            <asp:Button class="btn btn-success btn-block btn-lg" ID="btn_LogIn" runat="server" Text="LogIn" OnClick="btn_LogIn_Click" />
                         </div>
                         <div class="form-group">
-                            <asp:Button class="btn btn-info btn-block btn-lg" ID="btn_SignUp" runat="server" Text="SignUp" OnClick="btn_SignUp_Click"  />
+                            <asp:Button class="btn btn-info btn-block btn-lg" ID="btn_SignUp" runat="server" Text="SignUp" OnClick="btn_SignUp_Click" PostBackUrl="~/SignUp.aspx"  />
 
                            <%--<a href="SignUp.aspx"><input class="btn btn-info btn-block btn-lg" id="btn_SignUp" type="button" value="Sign Up" /></a>--%>
                         </div>

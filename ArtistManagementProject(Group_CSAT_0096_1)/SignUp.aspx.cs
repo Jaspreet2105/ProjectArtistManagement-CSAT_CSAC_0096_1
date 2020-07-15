@@ -37,7 +37,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                 cmd.Parameters.AddWithValue("@ConfirmPassword", txt_ConfirmPassword.Text.Trim());
                 cmd.Parameters.AddWithValue("@FirstName", txt_FirstName.Text.Trim());
                 cmd.Parameters.AddWithValue("@LastName", txt_LastName.Text.Trim());
-                cmd.Parameters.AddWithValue("@DateOfBirth", txt_Dob.Text.Trim());
+                cmd.Parameters.AddWithValue("@DateOfBirth", txt_Dob.Value.Trim()); //having html date textbox
                 cmd.Parameters.AddWithValue("@AccessType", "Artist");
                 cmd.Parameters.AddWithValue("@RequestStatus", "Pending");
 
