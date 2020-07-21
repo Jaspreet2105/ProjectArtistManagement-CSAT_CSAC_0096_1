@@ -29,16 +29,26 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                 {
                     con.Open();
                 }
-
-                string query = "SELECT * FROM users where UserId = '"+txt_UserId.Text.Trim()+"' AND Password='"+txt_Password.Text.Trim()+"'";
+                //TODO : Use parameterized query
+                //SELECT * FROM users AS user
+                //LEFT JOIN  Roles AS  role
+                //ON user.RoleID = role.RoleID
+                //Whre ..
+                string query = "SELECT * FROM user AS u LEFT JOIN ROLES AS r ON u.RoleId = r.RoleId  where UserId = '"+txt_UserId.Text.Trim()+"' AND Password='"+txt_Password.Text.Trim()+"'";
                 SqlCommand cmd = new SqlCommand(query,con);
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
                     if (dr.Read())
                     {
-                        Response.Write("<script>alert('" + dr.GetValue(0).ToString() + "');</script>");
+                        //if login is successfull, this 3 sessions will be created
+                        Response.Write("<script>alert('LogIn Successful');</script>");
+                        Session["firstname"] = dr.GetValue(4).ToString();
+                        Session["role"] = "Regular User";
+                        Session["RequestStatus"]= dr.GetValue(12).ToString();
+                        
                     }
+                    Response.Redirect("WelcomeRegularUser.aspx");
                 }
                 else {
 

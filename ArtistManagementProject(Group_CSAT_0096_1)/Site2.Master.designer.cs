@@ -10,7 +10,7 @@
 namespace ArtistManagementProject_Group_CSAT_0096_1_ {
     
     
-    public partial class Site1 {
+    public partial class Site2 {
         
         /// <summary>
         /// head control.
@@ -31,13 +31,13 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_ {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// LinkButton1 control.
+        /// LogOutLinkButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        protected global::System.Web.UI.WebControls.LinkButton LogOutLinkButton;
         
         /// <summary>
         /// LinkButton2 control.
