@@ -13,13 +13,13 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_ {
     public partial class WebForm1 {
         
         /// <summary>
-        /// txt_UserId control.
+        /// txt_UserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_UserId;
+        protected global::System.Web.UI.WebControls.TextBox txt_UserName;
         
         /// <summary>
         /// txt_Password control.

@@ -1720,7 +1720,7 @@
     <Content Include="Login.aspx" />
     <Content Include="HomePage.aspx" />
     <Content Include="ContactUs.aspx" />
-    <Content Include="WelcomeRegularUser.aspx" />
+    <Content Include="Welcome.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1766,12 +1766,12 @@
     <Compile Include="Site2.Master.designer.cs">
       <DependentUpon>Site2.Master</DependentUpon>
     </Compile>
-    <Compile Include="WelcomeRegularUser.aspx.cs">
-      <DependentUpon>WelcomeRegularUser.aspx</DependentUpon>
+    <Compile Include="Welcome.aspx.cs">
+      <DependentUpon>Welcome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WelcomeRegularUser.aspx.designer.cs">
-      <DependentUpon>WelcomeRegularUser.aspx</DependentUpon>
+    <Compile Include="Welcome.aspx.designer.cs">
+      <DependentUpon>Welcome.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

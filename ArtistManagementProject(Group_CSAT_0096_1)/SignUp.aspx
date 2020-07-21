@@ -29,10 +29,6 @@
                   </div>
                   <div class="row">
                      <div class="col">
-                        <label>User Id</label>
-                        <div class="form-group">
-                           <asp:TextBox CssClass="form-control" ID="txt_UserId" runat="server" placeholder="User Id"></asp:TextBox>
-                        </div>
                          <label>Email Address</label>
                         <div class="form-group">
                            <asp:TextBox CssClass="form-control" ID="txt_Email" runat="server" placeholder="Email"></asp:TextBox>

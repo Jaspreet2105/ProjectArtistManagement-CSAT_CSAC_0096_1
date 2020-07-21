@@ -34,21 +34,28 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                 //LEFT JOIN  Roles AS  role
                 //ON user.RoleID = role.RoleID
                 //Whre ..
-                string query = "SELECT * FROM user AS u LEFT JOIN ROLES AS r ON u.RoleId = r.RoleId  where UserId = '"+txt_UserId.Text.Trim()+"' AND Password='"+txt_Password.Text.Trim()+"'";
+                //string query = "SELECT * FROM user AS u LEFT JOIN ROLES AS r ON u.RoleId = r.RoleId  where UserId = '"+txt_UserId.Text.Trim()+"' AND Password='"+txt_Password.Text.Trim()+"'";
+
+
+                string query = "SELECT * FROM Users where EmailAddress = @email AND Password= @password";
                 SqlCommand cmd = new SqlCommand(query,con);
+
+                cmd.Parameters.AddWithValue("@email", txt_UserName.Text.Trim());
+                cmd.Parameters.AddWithValue("@Password", txt_Password.Text.Trim());
+
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
                     if (dr.Read())
                     {
-                        //if login is successfull, this 3 sessions will be created
+                        //if login is successfull, this 2 sessions will be created
                         Response.Write("<script>alert('LogIn Successful');</script>");
                         Session["firstname"] = dr.GetValue(4).ToString();
-                        Session["role"] = "Regular User";
-                        Session["RequestStatus"]= dr.GetValue(12).ToString();
-                        
+                        Session["role"] = dr.GetValue(10).ToString();
+                        //Session["RequestStatus"]= dr.GetValue(12).ToString();
+
                     }
-                    Response.Redirect("WelcomeRegularUser.aspx");
+                    Response.Redirect("Welcome.aspx");
                 }
                 else {
 

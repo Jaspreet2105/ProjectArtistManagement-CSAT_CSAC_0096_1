@@ -13,15 +13,6 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_ {
     public partial class SignUp {
         
         /// <summary>
-        /// txt_UserId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_UserId;
-        
-        /// <summary>
         /// txt_Email control.
         /// </summary>
         /// <remarks>
