@@ -22,16 +22,20 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
             if (Session["role"].Equals("2"))
             {
 
-                LinkButton2.Text = " Hello" + Session["firstname"].ToString();
+                LinkButton2.Text = " Hello " + Session["firstname"].ToString();
                 Label1.Text = "Welcome Elevated Access User";
+                btn_AccessRequests.Visible = false;
 
             }
 
             if (Session["role"].Equals("3"))
             {
 
-                LinkButton2.Text = " Hello" + Session["firstname"].ToString();
+                LinkButton2.Text = " Hello " + Session["firstname"].ToString();
                 Label1.Text = "Welcome Regular User";
+                btn_Users.Visible = false;
+                btn_AccessRequests.Visible = false;
+                
 
             }
             //if (Session["role"].Equals("2"))

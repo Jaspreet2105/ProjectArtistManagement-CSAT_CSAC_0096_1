@@ -27,34 +27,6 @@
     <%--bootstrap js --%>
     <script src="bootstrap/js/bootstrap.min.js"></script>
 
-    <%-- Vertical Menu --%>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <style>
-
-    .vertical-menu {
-    width: 200px;
-}
-
-    .vertical-menu a {
-        background-color: #eee;
-        color: black;
-        display: block;
-        padding: 12px;
-        text-decoration: none;
-    }
-
-        .vertical-menu a:hover {
-            background-color: #ccc;
-        }
-
-        .vertical-menu a.active {
-            background-color: #4b4276;
-            color: white;
-        }
-        </style>
-
-    
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -97,37 +69,34 @@
             </nav>
         </div>
         <%-- End Navigation --%>
- 
- 
-        <!-- Main Content Placeholder -->
+
+        <%-- Main Content Place Holder --%>
+
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
 
-        <%-- Vertical Menu --%>
-
-        <div class="vertical-menu">
-  <a href="#" class="active">Home</a>
-  <a href="#">Welcome</a>
-  <a href="#">My Profile</a>
-  <a href="#">Users</a>
-  <a href="#">Access Requests</a>
-  </div>
-
-        <asp:Label ID="Label1" runat="server"></asp:Label>
+        <%-- bootstrap button group --%>
+        <div class="btn-group-vertical">
+            <asp:Button ID="btn_Welcome" runat="server" Text="Welcome" class="btn btn-primary" PostBackUrl="~/Welcome.aspx"/>
+            <asp:Button ID="btn_MyProfile" runat="server" Text="My Profile" class="btn btn-primary"/>
+            <asp:Button ID="btn_Users" runat="server" Text="Users" class="btn btn-primary"/>
+            <asp:Button ID="btn_AccessRequests" runat="server" Text="Access Requests" class="btn btn-primary"/>
+            </div>
+  
 
 
-        <!-- Main Content Placeholder -->
- 
-         <!-- Footer -->
+       <asp:Label ID="Label1" runat="server"></asp:Label>
+
+        <!-- Footer -->
         <footer>
             
             <div id="footer2" class="container-fluid">
                 <div class="row">
 
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                        <p style="color:whitesmoke">&copy 2020 All Rights Reserved. <a class="footerlinks" href="#" target="_blank">Artist Management</a></p>
+                        <p style="color:whitesmoke">&copy 2020 All Rights Reserved.Artist Management</p>
                     </div>
                 </div>
             </div>
