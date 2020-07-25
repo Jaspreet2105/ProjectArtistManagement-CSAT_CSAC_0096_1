@@ -16,7 +16,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
 
                 LinkButton2.Text = " Hello Admin " + Session["firstname"].ToString();
                 Label1.Text = "Welcome ADMIN";
-                
+
             }
 
             if (Session["role"].Equals("2"))
@@ -24,7 +24,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
 
                 LinkButton2.Text = " Hello " + Session["firstname"].ToString();
                 Label1.Text = "Welcome Elevated Access User";
-                btn_AccessRequests.Visible = false;
+                linkbtn_AccessRequests.Visible = false;
 
             }
 
@@ -33,8 +33,8 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
 
                 LinkButton2.Text = " Hello " + Session["firstname"].ToString();
                 Label1.Text = "Welcome Regular User";
-                btn_Users.Visible = false;
-                btn_AccessRequests.Visible = false;
+                linkbtn_Users.Visible = false;
+                linkbtn_AccessRequests.Visible = false;
                 
 
             }
@@ -53,6 +53,11 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
         protected void LogOutLinkButton_Click(object sender, EventArgs e)
         {
             Session.RemoveAll();
+        }
+
+        protected void btn_MyProfile_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

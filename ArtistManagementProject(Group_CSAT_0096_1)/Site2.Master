@@ -70,6 +70,43 @@
         </div>
         <%-- End Navigation --%>
 
+         <%-- Asritha Side Bar --%>
+
+        <div class ="wrapper">
+
+              <div class ="sidebar">
+                 
+        
+                  <%--<h2>Menu </h2>--%>
+                  <ul>
+                      <li>
+            <asp:LinkButton ID="linkbtn_Welcome" runat="server" ><i class="fas fa-home"></i>Welcome</asp:LinkButton></li>
+                      <li>
+                          <li>
+            <asp:LinkButton ID="linkbtn_MyProfile" runat="server" PostBackUrl="~/MyProfile.aspx"><i class="fas fa-address-card"></i>My Profile</asp:LinkButton></li>
+                      <li>
+                          <li>
+            <asp:LinkButton ID="linkbtn_Users" runat="server"><i class="fas fa-user"></i>Users</asp:LinkButton></li>
+                      <li>
+                          <li>
+            <asp:LinkButton ID="linkbtn_AccessRequests" runat="server"><i class="fas fa-user-circle"></i>Access Requests</asp:LinkButton></li>
+                      <li>
+                          </ul>
+                
+
+                     <%--<li><a href="Welcome.aspx"><i class="fas fa-home"></i>Welcome</a></li>--%>
+                      <%--<li><a href="MyProfile.aspx"><i class="fas fa-address-card"></i>MyProfile</a></li>
+            
+           <li><a href="#"><i class="fas fa-user"></i>Users</a></li>
+            <li><a href="#"><i class="fas fa-user-circle"></i>Access Requests</a></li>            
+        </ul> 
+        --%>
+    </div>
+              </div>
+
+        <div><asp:Label ID="Label1" runat="server"></asp:Label></div>
+
+
         <%-- Main Content Place Holder --%>
 
         <div>
@@ -77,17 +114,28 @@
             </asp:ContentPlaceHolder>
         </div>
 
+       
+
+        
+<%--    <div class="main_content">
+        <div class="header"></div>  
+        <div class="info">
+             </div>
+        <div>
+            </div>
+        </div>--%>
+
         <%-- bootstrap button group --%>
-        <div class="btn-group-vertical">
+        <%--<div class="btn-group-vertical">
             <asp:Button ID="btn_Welcome" runat="server" Text="Welcome" class="btn btn-primary" PostBackUrl="~/Welcome.aspx"/>
-            <asp:Button ID="btn_MyProfile" runat="server" Text="My Profile" class="btn btn-primary"/>
+            <asp:Button ID="btn_MyProfile" runat="server" Text="My Profile" class="btn btn-primary" OnClick="btn_MyProfile_Click" PostBackUrl="~/MyProfile.aspx"/>
             <asp:Button ID="btn_Users" runat="server" Text="Users" class="btn btn-primary"/>
             <asp:Button ID="btn_AccessRequests" runat="server" Text="Access Requests" class="btn btn-primary"/>
-            </div>
+            </div>--%>
   
 
 
-       <asp:Label ID="Label1" runat="server"></asp:Label>
+       
 
         <!-- Footer -->
         <footer>
@@ -102,6 +150,7 @@
             </div>
  
         </footer>
+        
         
  
     </form>
