@@ -10,15 +10,6 @@
 namespace ArtistManagementProject_Group_CSAT_0096_1_ {
     
     
-    public partial class WebForm4 {
-        
-        /// <summary>
-        /// lbl_Welcome control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Welcome;
+    public partial class WebForm5 {
     }
 }

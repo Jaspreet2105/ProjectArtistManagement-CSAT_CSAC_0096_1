@@ -11,7 +11,31 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["role"].Equals("1"))
+            {
 
+
+                lbl_Welcome.Text = "Welcome ADMIN";
+
+            }
+
+            if (Session["role"].Equals("2"))
+            {
+
+
+                lbl_Welcome.Text = "Welcome Elevated Access User";
+                
+
+            }
+
+            if (Session["role"].Equals("3"))
+            {
+
+                lbl_Welcome.Text = "Welcome Regular User";
+               
+
+
+            }
         }
     }
 }
