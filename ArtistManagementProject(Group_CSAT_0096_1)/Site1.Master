@@ -89,7 +89,7 @@
 
         <!-- Footer -->
         <footer>
-            <div id="footer2" class="container-fluid">
+            <div id="footer2" class="footer">
                 <div class="row">
 
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">

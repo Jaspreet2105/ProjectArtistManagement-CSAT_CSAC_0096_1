@@ -49,49 +49,40 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_ {
         protected global::System.Web.UI.WebControls.LinkButton LinkButton2;
         
         /// <summary>
-        /// linkbtn_Welcome control.
+        /// btn_Welcome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkbtn_Welcome;
+        protected global::System.Web.UI.WebControls.Button btn_Welcome;
         
         /// <summary>
-        /// linkbtn_MyProfile control.
+        /// btn_MyProfile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkbtn_MyProfile;
+        protected global::System.Web.UI.WebControls.Button btn_MyProfile;
         
         /// <summary>
-        /// linkbtn_Users control.
+        /// btn_Users control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkbtn_Users;
+        protected global::System.Web.UI.WebControls.Button btn_Users;
         
         /// <summary>
-        /// linkbtn_AccessRequests control.
+        /// btn_AccessRequests control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkbtn_AccessRequests;
-        
-        /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Button btn_AccessRequests;
         
         /// <summary>
         /// ContentPlaceHolder1 control.

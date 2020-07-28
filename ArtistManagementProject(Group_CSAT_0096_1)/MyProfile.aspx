@@ -2,97 +2,153 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <%--<form>
-    <div class="container">     
-    <h1 class="well">EDIT USER </h1>
-	            <div class="col-lg-12 well">
-	                <div class="row">
-				    <div class="col-sm-12">
-					<div class="row">
-						<div class="col-sm-6 form-group">
-							<label>Email Address </label>
-							    <input type="text" placeholder="Enter your Email Address" class="form-control">
-						</div>
-					    <div class="col-sm-6 form-group">
-							<label>Password</label>
-							    <input type="password" placeholder="Enter your Password" class="form-control">
-					    </div>
-                        <div class="col-sm-6 form-group">
-                            <label>First Name</label>
-							    <input type="text" placeholder="Enter your First Name" class="form-control">
-						</div>
-                        <div class="col-sm-6 form-group">
-                            <label>Last Name</label>
-								<input type="text" placeholder="Enter your Last Name" class="form-control">
-							</div>
-						</div>
-                    <label>Date of Birth </label>
+    
+    
+         <div class="container-fluid">
+      <div class="row">
+         <div class="col-md-8">
+            <div class="card">
+               <div class="card-body">
+                  <div class="row">
+                     <div class="col">
+                        <center>
+                           <img width="100px" src="images/userimg.png"/>
+                        </center>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col">
+                        <center>
+                           <h4>My Profile</h4>
+                           <span>Account Status - </span>
+                           <asp:Label class="badge badge-pill badge-info" ID="Label1" runat="server" Text="Your Status"></asp:Label>
+                        </center>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col">
+                        <hr>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-4">
+                        <label>First Name</label>
                         <div class="form-group">
-                        <input type="date" class="form-control" ID="txt_Dob" runat="server" placeholder="Enter your Date of Birth" />
-                        </div> <br />
-             
+                           <asp:TextBox CssClass="form-control" ID="txt_FirstName" runat="server" placeholder="First Name" ReadOnly="True"></asp:TextBox>
+                        </div>
+                     </div>
+                      <div class="col-md-4">
+                        <label>Last Name</label>
+                        <div class="form-group">
+                           <asp:TextBox CssClass="form-control" ID="txt_LastName" runat="server" placeholder="Last Name" ReadOnly="True"></asp:TextBox>
+                        </div>
+                     </div>
 
-                    <div class="form-group">
-                        <label> Access Type </label>
-                        <select class="form-control accesstype" id="accesstype">
-                            <option value="" selected> Choose your Access type  </option>
-                            <option value="1"> Admin </option>
-                            <option value="2"> Elevated Access User </option>
-                            <option value="3"> Regular User </option>
-                        </select>
-                    </div>
+                       <div class="col-md-4">
+                        <label>Date of Birth</label>
+                        <div class="form-group">
+                           <input type="date" class="form-control" ID="txt_DOB" runat="server" placeholder="Date of Birth" readonly="readonly" />
+                        </div>
+                     
+                  </div>
+                      </div>
+                      
+                  <div class="row">
+                     <div class="col-md-6">
+                        <label>Access Type</label>
+                        <div class="form-group">
+                           <asp:DropDownList class="form-control" ID="dropdown_AccessType" runat="server">
+                              <asp:ListItem Text="Select" Value="select" />
+                              <asp:ListItem Text="Artist" Value="Artist" />
+                           </asp:DropDownList>
+                        </div>
+                     </div>
 
-                        <br/>
-					<div class="form-group">
-						<label>Phone Number</label>
-						<input type="text" placeholder="Enter your Phone Number" class="form-control">
-	
-                    <br/>  
-                    <div class="form-group">
-                        <label> Department </label>
-                        <select class="form-control department" id="department">
-                            <option value="" selected> Choose your Department </option>
-                            <option value="1"> Theatre Artist </option>
-                            <option value="2"> Violinist</option>
-                            <option value="3"> Pianist </option>
-                            <option value="4">Playback singer </option>
-                            <option value="5"> Technology</option>
-                        </select>
-                    </div> <br />
-
-
-						<div class="form-group">
-							<label>Address</label>
-							<textarea placeholder="Enter your Address" rows="1" class="form-control"></textarea>
-						</div>	
-                    <br/>
-						<div class="form-group">
-								<label>Zipcode</label>
-								<input type="text" placeholder="Enter your Zip Code" class="form-control">
-							</div>		
-						</div>
-                     <br/>
-					</div>
-				</div>
-        <div class="row">
-            <div class="col-md-6" align="right" >
-            
-                <button type="submit" class="btn btn-info saveUsers" id="saveUsers"> Save </button>
+                      <div class="col-md-6">
+                        <label>Department</label>
+                        <div class="form-group">
+                           <asp:DropDownList class="form-control" ID="dropdown_Department" runat="server">
+                              <asp:ListItem Text="Select" Value="select" />
+                              <asp:ListItem Text="Department" Value="Department" />
+                           </asp:DropDownList>
+                        </div>
+                     </div>
+                     
+                  
+                  </div>
+                  <div class="row">
+                     <div class="col">
+                        <label>Full Address</label>
+                        <div class="form-group">
+                           <asp:TextBox CssClass="form-control" ID="txt_FullAddress" runat="server" placeholder="Full Address" TextMode="MultiLine" Rows="2"></asp:TextBox>
+                        </div>
+                     </div>
+                  </div>
+                   <div class="row">
+                   <div class="col-md-6">
+                        <label>Zipcode</label>
+                        <div class="form-group">
+                           <asp:TextBox class="form-control" ID="txt_ZipCode" runat="server" placeholder="Zipcode"></asp:TextBox>
+                        </div>
+                     </div>
+                   <div class="col-md-6">
+                        <label>Phone Number</label>
+                        <div class="form-group">
+                           <asp:TextBox CssClass="form-control" ID="txt_PhnNo" runat="server" placeholder="Phone Number" TextMode="Number"></asp:TextBox>
+                        </div>
+                     </div>
+                       </div>
+                  <div class="row">
+                     <div class="col">
+                        <center>
+                           <span class="badge badge-pill badge-info">Login Credentials</span>
+                        </center>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-4">
+                        <label>Email ID</label>
+                        <div class="form-group">
+                           <asp:TextBox CssClass="form-control" ID="txt_Email" runat="server" placeholder="Email ID" TextMode="Email" ReadOnly="True"></asp:TextBox>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <label>Old Password</label>
+                        <div class="form-group">
+                           <asp:TextBox class="form-control" ID="txt_OldPassword" runat="server" placeholder="Old Password" ReadOnly="True"></asp:TextBox>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <label>New Password</label>
+                        <div class="form-group">
+                           <asp:TextBox class="form-control" ID="txt_NewPassword" runat="server" placeholder="New Password" TextMode="Password"></asp:TextBox>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-6">
+                        <center>
+                           <div class="form-group">
+                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="btn_Update" runat="server" Text="Update" />
+                           </div>
+                        </center>
+                     </div>
+                      <div class="col-6">
+                        <center>
+                           <div class="form-group">
+                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="btn_RequestElevatedAccess" runat="server" Text="Request Elevated Access" />
+                           </div>
+                        </center>
+                     </div>
+                  </div>
+               
             </div>
-            <div class="col-md-6" align="left">
-                &nbsp;
-                <button type="reset" class="btn btn-danger resetUsers" id="resetUsers"> Cancel </button>
-            </div>
-            <br/>             
-            <br/>
-            <br/>
-            <div class="col-sm-6 form-group" align ="center" style="right:50">
-                <div class="requestbutton">
-                 <button type="submit" class="btn btn-success" id="RequestUsers"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Request Elevated Access </button>
-        </div>
-            </div>
-        </div>
-        </div>
-        </div>
-             </form>--%>
+            <a href="HomePage.aspx"><< Back to Home</a><br><br>
+         </div>
+         
+      </div>
+   </div>
+             </div>
+     
+   
 </asp:Content>
