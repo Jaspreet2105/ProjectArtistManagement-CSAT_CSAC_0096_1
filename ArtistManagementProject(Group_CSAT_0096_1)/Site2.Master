@@ -194,7 +194,7 @@ div.content {
         
         <div class="container-fluid">
       <div class="row">
-         <div class="col-md-4">
+         <div class="col-md-3">
         <div class="btn-group-vertical">
             <asp:Button ID="btn_Welcome" runat="server" Text="Welcome" class="btn btn-primary" PostBackUrl="~/Welcome.aspx"/>
             <asp:Button ID="btn_MyProfile" runat="server" Text="My Profile" class="btn btn-primary" OnClick="btn_MyProfile_Click" PostBackUrl="~/MyProfile.aspx"/>
@@ -202,14 +202,15 @@ div.content {
             <asp:Button ID="btn_AccessRequests" runat="server" Text="Access Requests" class="btn btn-primary"/>
             </div>
              </div>
-          </div>
-            </div>
-            
-
-        <div>
+         
+         <div class="col-md-9">
+      
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+          </div>
+            </div>
+            
    
 
 
