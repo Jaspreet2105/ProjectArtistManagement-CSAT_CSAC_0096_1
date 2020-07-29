@@ -34,20 +34,20 @@
                      <div class="col-md-4">
                         <label>First Name</label>
                         <div class="form-group">
-                           <asp:TextBox CssClass="form-control" ID="txt_FirstName" runat="server" placeholder="First Name" ReadOnly="True"></asp:TextBox>
+                           <asp:TextBox CssClass="form-control" ID="txt_FirstName" runat="server" placeholder="First Name"></asp:TextBox>
                         </div>
                      </div>
                       <div class="col-md-4">
                         <label>Last Name</label>
                         <div class="form-group">
-                           <asp:TextBox CssClass="form-control" ID="txt_LastName" runat="server" placeholder="Last Name" ReadOnly="True"></asp:TextBox>
+                           <asp:TextBox CssClass="form-control" ID="txt_LastName" runat="server" placeholder="Last Name"></asp:TextBox>
                         </div>
                      </div>
 
                        <div class="col-md-4">
                         <label>Date of Birth</label>
                         <div class="form-group">
-                           <input type="date" class="form-control" ID="txt_DOB" runat="server" placeholder="Date of Birth" readonly="readonly" />
+                           <input type="date" class="form-control" ID="txt_DOB" runat="server" placeholder="Date of Birth" />
                         </div>
                      
                   </div>
@@ -69,7 +69,7 @@
                         <div class="form-group">
                            <asp:DropDownList class="form-control" ID="dropdown_Department" runat="server">
                               <asp:ListItem Text="Select" Value="select" />
-                              <asp:ListItem Text="Department" Value="Department" />
+                              <asp:ListItem />
                            </asp:DropDownList>
                         </div>
                      </div>
@@ -86,9 +86,9 @@
                   </div>
                    <div class="row">
                    <div class="col-md-6">
-                        <label>Zipcode</label>
+                        <label>PostalCode</label>
                         <div class="form-group">
-                           <asp:TextBox class="form-control" ID="txt_ZipCode" runat="server" placeholder="Zipcode"></asp:TextBox>
+                           <asp:TextBox class="form-control" ID="txt_PostalCode" runat="server" placeholder="PostalCode"></asp:TextBox>
                         </div>
                      </div>
                    <div class="col-md-6">
@@ -106,30 +106,39 @@
                      </div>
                   </div>
                   <div class="row">
-                     <div class="col-md-4">
+                     <div class="col-md-6">
                         <label>Email ID</label>
                         <div class="form-group">
                            <asp:TextBox CssClass="form-control" ID="txt_Email" runat="server" placeholder="Email ID" TextMode="Email" ReadOnly="True"></asp:TextBox>
                         </div>
                      </div>
-                     <div class="col-md-4">
+                     <div class="col-md-6">
                         <label>Old Password</label>
                         <div class="form-group">
                            <asp:TextBox class="form-control" ID="txt_OldPassword" runat="server" placeholder="Old Password" ReadOnly="True"></asp:TextBox>
                         </div>
                      </div>
-                     <div class="col-md-4">
+                      </div>
+                   <div class="row">
+                     <div class="col-md-6">
                         <label>New Password</label>
                         <div class="form-group">
                            <asp:TextBox class="form-control" ID="txt_NewPassword" runat="server" placeholder="New Password" TextMode="Password"></asp:TextBox>
                         </div>
                      </div>
-                  </div>
+                      <div class="col-md-6">
+                        <label>Confirm Password</label>
+                        <div class="form-group">
+                           <asp:TextBox class="form-control" ID="txt_NewConfirmPassword" runat="server" placeholder="Confirm Password" TextMode="Password" CausesValidation="True"></asp:TextBox>
+                        </div>
+                     </div>
+                       </div>
+                  
                   <div class="row">
                      <div class="col-6">
                         <center>
                            <div class="form-group">
-                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="btn_Update" runat="server" Text="Update" />
+                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="btn_Update" runat="server" Text="Update" OnClick="btn_Update_Click" />
                            </div>
                         </center>
                      </div>

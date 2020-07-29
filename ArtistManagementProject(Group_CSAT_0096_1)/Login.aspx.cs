@@ -51,7 +51,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                         //if login is successfull, this 2 sessions will be created
                         Response.Write("<script>alert('LogIn Successful');</script>");
                         Session["firstname"] = dr.GetValue(4).ToString();
-                        Session["EmailAddress"] = dr.GetValue(1).ToString();
+                        Session["UserName"] = dr.GetValue(1).ToString();
                         Session["role"] = dr.GetValue(10).ToString();
                         
                         //Session["RequestStatus"]= dr.GetValue(12).ToString();
