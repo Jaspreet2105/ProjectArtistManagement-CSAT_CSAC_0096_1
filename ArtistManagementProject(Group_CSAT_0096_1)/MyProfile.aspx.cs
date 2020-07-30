@@ -18,13 +18,13 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
             try
             {
 
-                if (Session["role"].Equals("1"))
-                {
+                //if (Session["role"].Equals("1"))
+                //{
 
-                   dropdown_Department.
+                //   dropdown_Department.
 
 
-                }
+                //}
 
 
                 if (Session["UserName"].ToString() == "" || Session["UserName"] == null)
