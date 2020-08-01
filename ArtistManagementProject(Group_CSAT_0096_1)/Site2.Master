@@ -255,7 +255,7 @@ div.content {
  
     </form>
      <%-- our js --%>
-    <script src="ourjs/dataTables.select.min.js"></script>
     <script src="ourjs/jquery.dataTables.min.js"></script>
+    <script src="ourjs/dataTables.select.min.js"></script>
 </body>
 </html>

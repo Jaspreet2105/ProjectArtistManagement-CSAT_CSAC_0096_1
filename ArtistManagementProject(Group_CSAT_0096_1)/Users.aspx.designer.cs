@@ -13,6 +13,42 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_ {
     public partial class WebForm6 {
         
         /// <summary>
+        /// btn_Created control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btn_Created;
+        
+        /// <summary>
+        /// btn_Edit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btn_Edit;
+        
+        /// <summary>
+        /// btn_View control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btn_View;
+        
+        /// <summary>
+        /// btn_Delete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btn_Delete;
+        
+        /// <summary>
         /// PlaceHolder1 control.
         /// </summary>
         /// <remarks>
