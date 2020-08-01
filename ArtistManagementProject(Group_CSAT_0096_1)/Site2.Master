@@ -28,7 +28,7 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
 
     <%-- responsive sidebar --%>
-    <%--<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
         body {
@@ -42,7 +42,7 @@
   padding: 0;
   width: 200px;
   background-color: #f1f1f1;
-  position: fixed;
+  position: absolute;
   height: 100%;
   overflow: auto;
 }
@@ -86,7 +86,7 @@ div.content {
     float: none;
   }
 }
-</style>--%>
+</style>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -96,6 +96,9 @@ div.content {
         <%-- Navigation Bar --%>
         <div>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <a class="navbar-brand" href="#">
                     <img src="images/AM logo.jpg" width="100" height="50" />
                     ARTIST MANAGEMENT
@@ -103,9 +106,7 @@ div.content {
 
                 <%-- This button will toggle navigation for responsive action as per mobile, tablet and browser --%>
  
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                
 
                 <%-- static navigation --%>
  
@@ -131,40 +132,18 @@ div.content {
         </div>
         <%-- responsive side bar --%>
 
-        <%--<div class="sidebar">
+        <div class="sidebar">
   <a class="active" href="MyProfile.aspx">Home</a>
-  <a href="#news">News</a>
+  <a href="MyProfile.aspx">My Profile</a>
   <a href="#contact">Contact</a>
   <a href="#about">About</a>
-</div>--%>
+</div>
 
         <%-- End Navigation --%>
 
          <%-- Asritha Side Bar --%>
 
-        <%--<div class ="wrapper">
-
-              <div class ="sidebar">
-                 
         
-                  <%--<h2>Menu </h2>--%>
-                  <%--<ul>
-                      <li>
-            <asp:LinkButton ID="linkbtn_Welcome" runat="server" ><i class="fas fa-home"></i>Welcome</asp:LinkButton></li>
-                      <li>
-                          <li>
-            <asp:LinkButton ID="linkbtn_MyProfile" runat="server" PostBackUrl="~/MyProfile.aspx"><i class="fas fa-address-card"></i>My Profile</asp:LinkButton></li>
-                      <li>
-                          <li>
-            <asp:LinkButton ID="linkbtn_Users" runat="server"><i class="fas fa-user"></i>Users</asp:LinkButton></li>
-                      <li>
-                          <li>
-            <asp:LinkButton ID="linkbtn_AccessRequests" runat="server"><i class="fas fa-user-circle"></i>Access Requests</asp:LinkButton></li>
-                      <li>
-                          </ul>
-                
-</div>
-              </div>--%>
       <%--  <div class="main_content">
         <div class="header"></div>  
         <div class="info">
@@ -195,12 +174,54 @@ div.content {
         <div class="container-fluid">
       <div class="row">
          <div class="col-md-3">
-        <div class="btn-group-vertical">
+             <div class="collapse navbar-collapse" id="navbarResp">
+                     
+                    <%-- dynamic navigation --%>
+ 
+                    <ul class="navbar-nav">
+                        
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="LinkButton1" runat="server" PostBackUrl="~/HomePage.aspx" OnClick="LogOutLinkButton_Click" >Logout</asp:LinkButton>
+                        </li>
+ 
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="LinkButton3" runat="server"></asp:LinkButton>
+ 
+                        </li>
+                    </ul>
+                </div>
+        <%--<div class="btn-group-vertical">
             <asp:Button ID="btn_Welcome" runat="server" Text="Welcome" class="btn btn-primary" PostBackUrl="~/Welcome.aspx"/>
             <asp:Button ID="btn_MyProfile" runat="server" Text="My Profile" class="btn btn-primary" OnClick="btn_MyProfile_Click" PostBackUrl="~/MyProfile.aspx"/>
             <asp:Button ID="btn_Users" runat="server" Text="Users" class="btn btn-primary"/>
             <asp:Button ID="btn_AccessRequests" runat="server" Text="Access Requests" class="btn btn-primary"/>
-            </div>
+            </div>--%>
+
+<%--             <div class ="wrapper">
+
+              <div class ="sidebar">
+                 
+        
+                  <h2>Menu </h2>
+                  <ul>
+                      <li>
+            <asp:LinkButton ID="linkbtn_Welcome" runat="server" ><i class="fas fa-home"></i>Welcome</asp:LinkButton></li>
+                      <li>
+                          <li>
+            <asp:LinkButton ID="linkbtn_MyProfile" runat="server" PostBackUrl="~/MyProfile.aspx"><i class="fas fa-address-card"></i>My Profile</asp:LinkButton></li>
+                      <li>
+                          <li>
+            <asp:LinkButton ID="linkbtn_Users" runat="server"><i class="fas fa-user"></i>Users</asp:LinkButton></li>
+                      <li>
+                          <li>
+            <asp:LinkButton ID="linkbtn_AccessRequests" runat="server"><i class="fas fa-user-circle"></i>Access Requests</asp:LinkButton></li>
+                      <li>
+                          </ul>
+                
+</div>
+              </div>--%>
+
+
              </div>
          
          <div class="col-md-9">
