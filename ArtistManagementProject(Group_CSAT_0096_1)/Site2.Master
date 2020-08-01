@@ -16,9 +16,9 @@
 
     <%-- our css --%>
     <link href="ourcss/ourstylesheet.css" rel="stylesheet" type="text/css" media="screen" runat="server"/>
-
-
-
+    <link href="ourcss/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="ourcss/select.dataTables.min.css" rel="stylesheet" />
+     
 
     <%-- jquery --%>
     <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
@@ -254,5 +254,8 @@ div.content {
         
  
     </form>
+     <%-- our js --%>
+    <script src="ourjs/dataTables.select.min.js"></script>
+    <script src="ourjs/jquery.dataTables.min.js"></script>
 </body>
 </html>

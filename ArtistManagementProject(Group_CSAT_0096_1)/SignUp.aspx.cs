@@ -19,7 +19,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
         }
 
         protected void btn_SignUp_Click(object sender, EventArgs e)
-        {
+      {
             //Response.Write("<script>alert('testing');</script>");
             try
             {

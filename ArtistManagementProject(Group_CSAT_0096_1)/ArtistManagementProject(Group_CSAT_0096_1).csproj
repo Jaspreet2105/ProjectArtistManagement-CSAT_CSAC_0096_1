@@ -1722,7 +1722,11 @@
     <Content Include="Images\AM logo.jpg" />
     <Content Include="Images\LoginImg.jpg" />
     <Content Include="Images\userimg.png" />
+    <Content Include="ourcss\dataTables.bootstrap4.min.css" />
     <Content Include="ourcss\ourstylesheet.css" />
+    <Content Include="ourcss\select.dataTables.min.css" />
+    <Content Include="ourjs\dataTables.select.min.js" />
+    <Content Include="ourjs\jquery.dataTables.min.js" />
     <Content Include="SignUp.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1731,6 +1735,7 @@
     <Content Include="HomePage.aspx" />
     <Content Include="ContactUs.aspx" />
     <Content Include="MyProfile.aspx" />
+    <Content Include="Users.aspx" />
     <Content Include="Welcome.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -1790,6 +1795,13 @@
     </Compile>
     <Compile Include="MyProfile.aspx.designer.cs">
       <DependentUpon>MyProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
     </Compile>
     <Compile Include="Welcome.aspx.cs">
       <DependentUpon>Welcome.aspx</DependentUpon>
