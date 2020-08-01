@@ -32,6 +32,8 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
             {
 
                 lbl_Welcome.Text = "Welcome Regular User";
+                
+                
                
 
 

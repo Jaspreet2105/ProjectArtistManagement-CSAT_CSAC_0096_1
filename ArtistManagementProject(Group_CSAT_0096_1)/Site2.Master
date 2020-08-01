@@ -27,6 +27,67 @@
     <%--bootstrap js --%>
     <script src="bootstrap/js/bootstrap.min.js"></script>
 
+    <%-- responsive sidebar --%>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+
+    .sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: absolute;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+ 
+.sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+</style>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -35,6 +96,9 @@
         <%-- Navigation Bar --%>
         <div>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <a class="navbar-brand" href="#">
                     <img src="images/AM logo.jpg" width="100" height="50" />
                     ARTIST MANAGEMENT
@@ -42,9 +106,7 @@
 
                 <%-- This button will toggle navigation for responsive action as per mobile, tablet and browser --%>
  
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                
 
                 <%-- static navigation --%>
  
@@ -68,16 +130,79 @@
  
             </nav>
         </div>
+        <%-- responsive side bar --%>
+
+        <div class="sidebar">
+  <a class="active" href="MyProfile.aspx">Home</a>
+  <a href="MyProfile.aspx">My Profile</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+</div>
+
         <%-- End Navigation --%>
 
          <%-- Asritha Side Bar --%>
 
-        <div class ="wrapper">
+        
+      <%--  <div class="main_content">
+        <div class="header"></div>  
+        <div class="info">
+             </div>
+        
+            </div>
+
+        <div><asp:Label ID="Label1" runat="server"></asp:Label></div>--%>
+
+
+        <%-- Main Content Place Holder --%>
+
+        
+
+       
+
+        
+<%--    <div class="main_content">
+        <div class="header"></div>  
+        <div class="info">
+             </div>
+        <div>
+            </div>
+        </div>--%>
+
+        <%-- bootstrap button group --%>
+        
+        <div class="container-fluid">
+      <div class="row">
+         <div class="col-md-3">
+             <div class="collapse navbar-collapse" id="navbarResp">
+                     
+                    <%-- dynamic navigation --%>
+ 
+                    <ul class="navbar-nav">
+                        
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="LinkButton1" runat="server" PostBackUrl="~/HomePage.aspx" OnClick="LogOutLinkButton_Click" >Logout</asp:LinkButton>
+                        </li>
+ 
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="LinkButton3" runat="server"></asp:LinkButton>
+ 
+                        </li>
+                    </ul>
+                </div>
+        <%--<div class="btn-group-vertical">
+            <asp:Button ID="btn_Welcome" runat="server" Text="Welcome" class="btn btn-primary" PostBackUrl="~/Welcome.aspx"/>
+            <asp:Button ID="btn_MyProfile" runat="server" Text="My Profile" class="btn btn-primary" OnClick="btn_MyProfile_Click" PostBackUrl="~/MyProfile.aspx"/>
+            <asp:Button ID="btn_Users" runat="server" Text="Users" class="btn btn-primary"/>
+            <asp:Button ID="btn_AccessRequests" runat="server" Text="Access Requests" class="btn btn-primary"/>
+            </div>--%>
+
+<%--             <div class ="wrapper">
 
               <div class ="sidebar">
                  
         
-                  <%--<h2>Menu </h2>--%>
+                  <h2>Menu </h2>
                   <ul>
                       <li>
             <asp:LinkButton ID="linkbtn_Welcome" runat="server" ><i class="fas fa-home"></i>Welcome</asp:LinkButton></li>
@@ -93,46 +218,21 @@
                       <li>
                           </ul>
                 
-
-                     <%--<li><a href="Welcome.aspx"><i class="fas fa-home"></i>Welcome</a></li>--%>
-                      <%--<li><a href="MyProfile.aspx"><i class="fas fa-address-card"></i>MyProfile</a></li>
-            
-           <li><a href="#"><i class="fas fa-user"></i>Users</a></li>
-            <li><a href="#"><i class="fas fa-user-circle"></i>Access Requests</a></li>            
-        </ul> 
-        --%>
-    </div>
-              </div>
-
-        <div><asp:Label ID="Label1" runat="server"></asp:Label></div>
+</div>
+              </div>--%>
 
 
-        <%-- Main Content Place Holder --%>
-
-        <div>
+             </div>
+         
+         <div class="col-md-9">
+      
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-
-       
-
-        
-<%--    <div class="main_content">
-        <div class="header"></div>  
-        <div class="info">
-             </div>
-        <div>
+          </div>
             </div>
-        </div>--%>
-
-        <%-- bootstrap button group --%>
-        <%--<div class="btn-group-vertical">
-            <asp:Button ID="btn_Welcome" runat="server" Text="Welcome" class="btn btn-primary" PostBackUrl="~/Welcome.aspx"/>
-            <asp:Button ID="btn_MyProfile" runat="server" Text="My Profile" class="btn btn-primary" OnClick="btn_MyProfile_Click" PostBackUrl="~/MyProfile.aspx"/>
-            <asp:Button ID="btn_Users" runat="server" Text="Users" class="btn btn-primary"/>
-            <asp:Button ID="btn_AccessRequests" runat="server" Text="Access Requests" class="btn btn-primary"/>
-            </div>--%>
-  
+            
+   
 
 
        
@@ -140,7 +240,7 @@
         <!-- Footer -->
         <footer>
             
-            <div id="footer2" class="container-fluid">
+            <div id="footer2" class="footer">
                 <div class="row">
 
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
