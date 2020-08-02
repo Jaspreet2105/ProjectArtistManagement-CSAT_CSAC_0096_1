@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="MyProfile.aspx.cs" Inherits="ArtistManagementProject_Group_CSAT_0096_1_.WebForm5" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="AddUser.aspx.cs" Inherits="ArtistManagementProject_Group_CSAT_0096_1_.WebForm7" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server"> 
-         <div class="container-fluid">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container-fluid">
       <div class="row">
          <div class="col-md-8">
             <div class="card">
@@ -17,9 +17,8 @@
                   <div class="row">
                      <div class="col">
                         <center>
-                           <h4>My Profile</h4>
-                           <span>Account Status - </span>
-                           <asp:Label class="badge badge-pill badge-info" ID="Label1" runat="server" Text="Your Status"></asp:Label>
+                           <h4>Add User</h4>
+                           
                         </center>
                      </div>
                   </div>
@@ -33,7 +32,8 @@
                         <label>First Name</label>
                         <div class="form-group">
                            <asp:TextBox CssClass="form-control" ID="txt_FirstName" runat="server" placeholder="First Name"></asp:TextBox>
-                        </div>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txt_FirstName" ErrorMessage="*Required" ForeColor="Red"></asp:RequiredFieldValidator>
+                            </div>
                      </div>
                       <div class="col-md-4">
                         <label>Last Name</label>
@@ -57,7 +57,9 @@
                         <div class="form-group">
                            <asp:DropDownList class="form-control" ID="dropdown_AccessType" runat="server">
                               <asp:ListItem Text="Select" Value="select" />
-                              <asp:ListItem Text="Artist" Value="Artist" />
+                              <asp:ListItem Text="Artist" Value="3" />
+                               <asp:ListItem Text="Manager" Value="2" />
+                                <asp:ListItem Text="Admin" Value="1" />
                            </asp:DropDownList>
                         </div>
                      </div>
@@ -67,6 +69,7 @@
                         <div class="form-group">
                            <asp:DropDownList class="form-control" ID="dropdown_Department" runat="server">
                               <asp:ListItem Text="Select" Value="select" />
+
                               <asp:ListItem />
                            </asp:DropDownList>
                         </div>
@@ -104,19 +107,13 @@
                      </div>
                   </div>
                   <div class="row">
-                     <div class="col-md-6">
+                     <div class="col-md-12">
                         <label>Email ID</label>
                         <div class="form-group">
-                           <asp:TextBox CssClass="form-control" ID="txt_Email" runat="server" placeholder="Email ID" TextMode="Email" ReadOnly="True"></asp:TextBox>
+                           <asp:TextBox CssClass="form-control" ID="txt_Email" runat="server" placeholder="Email ID" TextMode="Email" ></asp:TextBox>
                         </div>
                      </div>
-                     <div class="col-md-6">
-                        <label>Old Password</label>
-                        <div class="form-group">
-                           <asp:TextBox class="form-control" ID="txt_OldPassword" runat="server" placeholder="Old Password" ReadOnly="True"></asp:TextBox>
-                        </div>
                      </div>
-                      </div>
                    <div class="row">
                      <div class="col-md-6">
                         <label>New Password</label>
@@ -136,14 +133,14 @@
                      <div class="col-6">
                         <center>
                            <div class="form-group">
-                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="btn_Update" runat="server" Text="Update" OnClick="btn_Update_Click" />
+                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="btn_Update" runat="server" Text="Save"  />
                            </div>
                         </center>
                      </div>
                       <div class="col-6">
                         <center>
                            <div class="form-group">
-                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="btn_RequestElevatedAccess" runat="server" Text="Request Elevated Access" />
+                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="btn_RequestElevatedAccess" runat="server" Text="Cancel" />
                            </div>
                         </center>
                      </div>
@@ -157,5 +154,4 @@
    </div>
              </div>
      
-   
 </asp:Content>
