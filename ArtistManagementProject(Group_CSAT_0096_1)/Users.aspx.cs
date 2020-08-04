@@ -93,6 +93,13 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
             con.Close();
             return ds.Tables[0];
         }
+        [System.Web.Services.WebMethod]
+        public static string DeleteUser(string UserIDs)
+        {
+            // Call Database 
+            return "success";
+            //return new { success=true};
+        }
     }
 }
 

@@ -23,6 +23,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
             {
 
                 LinkButton2.Text = " Hello " + Session["firstname"].ToString();
+                linkAccessRequest.Visible = false;
              
 
             }
@@ -31,12 +32,14 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
             {
 
                 LinkButton2.Text = " Hello " + Session["firstname"].ToString();
+                linkAccessRequest.Visible = false;
+                linkUsers.Visible = false;
                 //btn_Users.Visible = false;
                 //btn_AccessRequests.Visible = false;
                 //linkbtn_Users.Visible = false;
                 //linkbtn_AccessRequests.Visible = false;
-              
-                
+
+
 
             }
            
