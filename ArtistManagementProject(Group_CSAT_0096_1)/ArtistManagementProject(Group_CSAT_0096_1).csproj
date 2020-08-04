@@ -1737,6 +1737,8 @@
     <Content Include="MyProfile.aspx" />
     <Content Include="Users.aspx" />
     <Content Include="AddUser.aspx" />
+    <Content Include="EditUser.aspx" />
+    <Content Include="AccessRequest.aspx" />
     <Content Include="Welcome.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -1810,6 +1812,20 @@
     </Compile>
     <Compile Include="AddUser.aspx.designer.cs">
       <DependentUpon>AddUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditUser.aspx.cs">
+      <DependentUpon>EditUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditUser.aspx.designer.cs">
+      <DependentUpon>EditUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AccessRequest.aspx.cs">
+      <DependentUpon>AccessRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccessRequest.aspx.designer.cs">
+      <DependentUpon>AccessRequest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Welcome.aspx.cs">
       <DependentUpon>Welcome.aspx</DependentUpon>

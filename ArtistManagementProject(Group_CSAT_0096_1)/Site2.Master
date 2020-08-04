@@ -134,9 +134,9 @@ div.content {
 
         <div class="sidebar">
   <a class="active" href="MyProfile.aspx">Home</a>
-  <a href="MyProfile.aspx">My Profile</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
+  <a href="/MyProfile.aspx">My Profile</a>
+  <a href="/Users.aspx">Users</a>
+  <a href="#AccessRequest">About</a>
 </div>
 
         <%-- End Navigation --%>
