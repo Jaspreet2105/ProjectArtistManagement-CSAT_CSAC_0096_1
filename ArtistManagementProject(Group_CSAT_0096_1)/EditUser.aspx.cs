@@ -18,13 +18,34 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
             if (!IsPostBack)
             {
                 int UserID = Convert.ToInt32(Request.Params.Get("UserID"));
+                bool  isView = Request.Params.Get("isView") != null ? Convert.ToBoolean(Request.Params.Get("isView")):false;
                 SetUserData(UserID);
+                if (isView)
+                    SetViewMode();
                 //dropdown_Department.DataSource = GetDepartmentData();
                 //dropdown_Department.DataTextField = "DName";
                 //dropdown_Department.DataValueField = "DeptId";
                 //dropdown_Department.DataBind();
 
             }
+        }
+        private void SetViewMode()
+        {
+            txt_FirstName.ReadOnly = true;
+            txt_LastName.ReadOnly = true;
+            txt_DOB.Disabled = true;
+            txt_PhnNo.ReadOnly = true;
+            txt_FullAddress.ReadOnly = true;
+            txt_Email.ReadOnly = true;
+            txt_PostalCode.ReadOnly = true;
+            dropdown_AccessType.Attributes.Add("disabled", "disabled");
+            dropdown_Department.Attributes.Add("disabled", "disabled");
+            txt_NewPassword.Visible = false;
+            txt_NewConfirmPassword.Visible = false;
+            btn_Update.Visible = false;
+            btn_Cancel.Visible = false;
+            lbl_NewPassword.Visible = false;
+            lbl_ConfirmPassword.Visible = false;
         }
         private void SetUserData(int UserID)
         {
