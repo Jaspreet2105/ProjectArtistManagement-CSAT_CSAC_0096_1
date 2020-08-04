@@ -156,6 +156,11 @@
       </div>
    </div>
              </div>
-     
+     <script>
+         $(document).ready(function () {
+            $('.sidebar').find('.active').eq(0).removeClass('active');
+            $('#linkMyProfile').addClass("active");
+        });
+     </script>
    
 </asp:Content>
