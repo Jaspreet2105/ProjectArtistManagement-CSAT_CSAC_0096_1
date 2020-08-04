@@ -119,13 +119,15 @@
                         <%-- IF needed we can add old password --%>
                         <div class="row">
                             <div class="col-md-6">
-                                <label>New Password</label>
+                                <%--<label>New Password</label>--%>
+                                <asp:Label ID="lbl_NewPassword" Text="New Password" runat="server"></asp:Label>
                                 <div class="form-group">
                                     <asp:TextBox class="form-control" ID="txt_NewPassword" runat="server" placeholder="New Password" TextMode="Password"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label>Confirm Password</label>
+                                <%--<label>Confirm Password</label>--%>
+                                <asp:Label ID="lbl_ConfirmPassword" Text="Confirm Password" runat="server"></asp:Label>
                                 <div class="form-group">
                                     <asp:TextBox class="form-control" ID="txt_NewConfirmPassword" runat="server" placeholder="Confirm Password" TextMode="Password" CausesValidation="True"></asp:TextBox>
                                 </div>
@@ -143,7 +145,7 @@
                             <div class="col-6">
                                 <center>
                            <div class="form-group">
-                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="btn_RequestElevatedAccess" runat="server" Text="Cancel" />
+                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="btn_Cancel" runat="server" Text="Cancel" />
                            </div>
                         </center>
                             </div>

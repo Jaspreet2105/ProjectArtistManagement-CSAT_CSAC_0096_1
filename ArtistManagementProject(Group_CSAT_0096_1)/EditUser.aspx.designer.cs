@@ -112,6 +112,15 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_ {
         protected global::System.Web.UI.WebControls.Label lbl_EmailID;
         
         /// <summary>
+        /// lbl_NewPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_NewPassword;
+        
+        /// <summary>
         /// txt_NewPassword control.
         /// </summary>
         /// <remarks>
@@ -119,6 +128,15 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_ {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_NewPassword;
+        
+        /// <summary>
+        /// lbl_ConfirmPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_ConfirmPassword;
         
         /// <summary>
         /// txt_NewConfirmPassword control.
@@ -139,12 +157,12 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_ {
         protected global::System.Web.UI.WebControls.Button btn_Update;
         
         /// <summary>
-        /// btn_RequestElevatedAccess control.
+        /// btn_Cancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_RequestElevatedAccess;
+        protected global::System.Web.UI.WebControls.Button btn_Cancel;
     }
 }
