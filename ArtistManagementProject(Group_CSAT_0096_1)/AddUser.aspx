@@ -111,6 +111,7 @@
                         <label>Email ID</label>
                         <div class="form-group">
                            <asp:TextBox CssClass="form-control" ID="txt_Email" runat="server" placeholder="Email ID" TextMode="Email" ></asp:TextBox>
+                            <asp:Label ID="lbl_EmailID" runat="server" Visible="false" ForeColor="Red"></asp:Label>
                         </div>
                      </div>
                      </div>
@@ -133,7 +134,7 @@
                      <div class="col-6">
                         <center>
                            <div class="form-group">
-                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="btn_Update" runat="server" Text="Save"  />
+                              <asp:Button OnClick="btn_SaveClick" class="btn btn-primary btn-block btn-lg" ID="btn_Update" runat="server" Text="Save"  />
                            </div>
                         </center>
                      </div>
@@ -145,9 +146,10 @@
                         </center>
                      </div>
                   </div>
-               
+          
             </div>
-            <a href="HomePage.aspx"><< Back to Home</a><br><br>
+                <br><br>
+           <%-- <a href="HomePage.aspx"><< Back to Home</a><br><br>--%>
          </div>
          
       </div>
