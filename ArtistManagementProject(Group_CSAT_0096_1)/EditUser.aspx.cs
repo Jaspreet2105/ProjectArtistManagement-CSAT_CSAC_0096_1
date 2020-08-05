@@ -18,7 +18,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
             if (!IsPostBack)
             {
                 int UserID = Convert.ToInt32(Request.Params.Get("UserID"));
-                bool  isView = Request.Params.Get("isView") != null ? Convert.ToBoolean(Request.Params.Get("isView")):false;
+                bool isView = Request.Params.Get("isView") != null ? Convert.ToBoolean(Request.Params.Get("isView")) : false;
                 SetUserData(UserID);
                 if (isView)
                     SetViewMode();
@@ -69,9 +69,11 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
             dropdown_Department.DataSource = GetDepartmentData();
             dropdown_Department.DataTextField = "DName";
             dropdown_Department.DataValueField = "DeptId";
-            dropdown_Department.SelectedValue = Convert.ToString(data["DeptId"]);
+            if (data["DeptId"] != null && !string.IsNullOrEmpty(Convert.ToString(data["DeptId"])))
+                dropdown_Department.SelectedValue = Convert.ToString(data["DeptId"]);
             dropdown_Department.DataBind();
 
+            //if (data["RoleId"] != null)
             dropdown_AccessType.SelectedValue = Convert.ToString(data["RoleId"]);
             dropdown_AccessType.DataBind();
 

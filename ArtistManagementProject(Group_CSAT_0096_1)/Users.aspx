@@ -3,8 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <br/>
-    <br/>
+    <br />
+    <br />
     <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">USERS </h1>
     <div id="contentDiv">
 
@@ -24,11 +24,10 @@
                 "btn btn-primary" OnClientClick="alert('Edit')"/>
             <asp:Button ID="btn_Delete" runat="server" Text="Delete" class=
                 "btn btn-primary" OnClientClick="alert('Delete')"/>--%>
-                
             </div>
         </div>
-        <br/>
-        <br/>
+        <br />
+        <br />
         <div class="row">
             <div class="col-md-12">
                 <asp:PlaceHolder ID="PlaceHolder1" runat="server" />
@@ -86,14 +85,18 @@
             var selectedusers = "123,122";
             //window.location = window.location.origin + url;
             //window.location.href = window.location.origin + url;
-            var data = { UserIDs: selectedusers };
+            var data = {};
+            data.UserIDs = selectedusers;
             $.ajax({
                 type: "POST",
                 url: "Users.aspx/DeleteUser",
-                data: data,
+                data: '{UserIDs: "' + data.UserIDs + '" }',
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (response) {
+                    console.log(response);
+                },
+                error: function (response) {
                     console.log(response);
                 },
                 failure: function (response) {

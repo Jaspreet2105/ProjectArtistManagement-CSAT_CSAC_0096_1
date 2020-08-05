@@ -41,7 +41,7 @@
             margin: 0;
             padding: 0;
             width: 200px;
-            background-color:  #f1f1f1;
+            background-color: #f1f1f1;
             position: relative;
             height: 100%;
             overflow: auto;
@@ -102,9 +102,6 @@
         <%-- Navigation Bar --%>
         <div>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
                 <a class="navbar-brand" href="#">
                     <img src="images/AM logo.jpg" width="100" height="50" />
                     ARTIST MANAGEMENT
@@ -112,40 +109,35 @@
 
                 <%-- This button will toggle navigation for responsive action as per mobile, tablet and browser --%>
 
-
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <%-- static navigation --%>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                    <%-- dynamic navigation --%>
-
-                    <ul class="navbar-nav">
-
+                    <%-- mr-auto is margin auto so that dynamic nav will be moved to right side --%>
+                    <ul class="navbar-nav mr-auto">
                         <%--<li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="LogOutLinkButton" runat="server" PostBackUrl="~/HomePage.aspx" OnClick="LogOutLinkButton_Click">Logout</asp:LinkButton>
+                            <a class="nav-link" href="HomePage.aspx">Home</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="ContactUs.aspx">Contact Us</a>
                         </li>--%>
 
-                        <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="LinkButton2" runat="server"></asp:LinkButton>
-
-                        </li>
                     </ul>
-                </div>
-                <div class="collapse navbar-collapse" id="navbarResp">
 
                     <%-- dynamic navigation --%>
 
                     <ul class="navbar-nav">
-
                         <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="LinkButton1" runat="server" PostBackUrl="~/HomePage.aspx" OnClick="LogOutLinkButton_Click">Logout</asp:LinkButton>
+                            <asp:LinkButton class="nav-link" ID="LinkButton2" runat="server"></asp:LinkButton>
                         </li>
 
                         <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="LinkButton3" runat="server"></asp:LinkButton>
-
+                            <asp:LinkButton class="nav-link" ID="LinkButton5" runat="server" PostBackUrl="~/Login.aspx">Logout</asp:LinkButton>
                         </li>
+
                     </ul>
                 </div>
 
@@ -188,25 +180,25 @@
 
         <%-- bootstrap button group --%>
 
-        
-                        <%--<asp:HyperLink NavigateUrl="~/Users.aspx" ID="linkTest" runat="server" Text="Test"></asp:HyperLink>--%>
-                        <%--<asp:LinkButton ID="linkbtn_MyProfile" runat="server" PostBackUrl="~/MyProfile.aspx"><i class="fas fa-address-card"></i>My Profile</asp:LinkButton>--%></li>
-            <%--<asp:LinkButton ID="linkUsers" PostBackUrl="~/Users.aspx" runat="server" Text="Users"></asp:LinkButton>--%>
-                        <%--<a class="active" href="/Welcome.aspx">Home</a>--%>
-                       
-                        <%--<asp:HyperLink NavigateUrl="~/Users.aspx" ID="HyperLink1" runat="server" Text="Test"></asp:HyperLink>--%>
-                        <%--<asp:Button ID="Button1" runat="server" Text="Welcom" class="btn btn-primary" PostBackUrl="~/Welcome.aspx" />
-                        <asp:Button ID="btn_Welcome" runat="server" Text="Welcome" class="btn btn-primary" PostBackUrl="~/Users.aspx" />--%>
-                   
 
-                    <%--<div class="btn-group-vertical">
+        <%--<asp:HyperLink NavigateUrl="~/Users.aspx" ID="linkTest" runat="server" Text="Test"></asp:HyperLink>--%>
+        <%--<asp:LinkButton ID="linkbtn_MyProfile" runat="server" PostBackUrl="~/MyProfile.aspx"><i class="fas fa-address-card"></i>My Profile</asp:LinkButton>--%></li>
+            <%--<asp:LinkButton ID="linkUsers" PostBackUrl="~/Users.aspx" runat="server" Text="Users"></asp:LinkButton>--%>
+        <%--<a class="active" href="/Welcome.aspx">Home</a>--%>
+
+        <%--<asp:HyperLink NavigateUrl="~/Users.aspx" ID="HyperLink1" runat="server" Text="Test"></asp:HyperLink>--%>
+        <%--<asp:Button ID="Button1" runat="server" Text="Welcom" class="btn btn-primary" PostBackUrl="~/Welcome.aspx" />
+                        <asp:Button ID="btn_Welcome" runat="server" Text="Welcome" class="btn btn-primary" PostBackUrl="~/Users.aspx" />--%>
+
+
+        <%--<div class="btn-group-vertical">
             <asp:Button ID="btn_Welcome" runat="server" Text="Welcome" class="btn btn-primary" PostBackUrl="~/Welcome.aspx"/>
             <asp:Button ID="btn_MyProfile" runat="server" Text="My Profile" class="btn btn-primary" OnClick="btn_MyProfile_Click" PostBackUrl="~/MyProfile.aspx"/>
             <asp:Button ID="btn_Users" runat="server" Text="Users" class="btn btn-primary"/>
             <asp:Button ID="btn_AccessRequests" runat="server" Text="Access Requests" class="btn btn-primary"/>
             </div>--%>
 
-                    <%--             <div class ="wrapper">
+        <%--             <div class ="wrapper">
 
               <div class ="sidebar">
                  
@@ -253,22 +245,22 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="sidebar">
-                         <asp:HyperLink CssClass="active" NavigateUrl="~/Welcome.aspx" ID="linkHome" runat="server" Text="Welcome"><i class="fas fa-home"></i> Welcome </asp:HyperLink>
+                        <asp:HyperLink CssClass="active" NavigateUrl="~/Welcome.aspx" ID="linkHome" runat="server" Text="Welcome"><i class="fas fa-home"></i> Welcome </asp:HyperLink>
                         <asp:HyperLink NavigateUrl="~/MyProfile.aspx" ID="linkMyProfile" runat="server" Text="My Profile"><i class="fas fa-address-card"></i> My Profile</asp:HyperLink>
                         <asp:HyperLink NavigateUrl="~/Users.aspx" ID="linkUsers" runat="server" Text="Users"><i class="fas fa-user"></i> Users </asp:HyperLink>
                         <asp:HyperLink NavigateUrl="~/AccessRequest.aspx" ID="linkAccessRequest" runat="server" Text="Access Request"><i class="fas fa-user-circle"></i> Access Requests </asp:HyperLink>
+                    </div>
                 </div>
-                     </div>
-                
-           
+
+
                 <div class="col-md-9">
 
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>
             </div>
-            </div>
-        
+        </div>
+
 
 
 
