@@ -70,41 +70,62 @@
             return false;
             //window.open(url, '_blank');
         }
-        function DeleteUser() {
-            //var obj = GetTableSelectedItems();
-            //if (obj.length == 0) {
-            //    alert('Select a record to continue');
-            //    return;
-            //}
+        function DeleteUser(isView) {
+            var obj = GetTableSelectedItems();
+            if (obj.length == 0) {
+                alert('Select a record to continue');
+                return;
+            }
             //else if (obj.length > 1) {
             //    alert('Select only One record');
             //    return;
             //}
-            ////var val = document.getElementById('txtBoxId').value;
-            //var url = 'EditUser.aspx?UserID=' + obj[0][0];
-            var selectedusers = "123,122";
-            //window.location = window.location.origin + url;
-            //window.location.href = window.location.origin + url;
-            var data = {};
-            data.UserIDs = selectedusers;
-            $.ajax({
-                type: "POST",
-                url: "Users.aspx/DeleteUser",
-                data: '{UserIDs: "' + data.UserIDs + '" }',
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: function (response) {
-                    console.log(response);
-                },
-                error: function (response) {
-                    console.log(response);
-                },
-                failure: function (response) {
-                    alert(response.d);
-                }
-            });
+            else {
+                var selected = [];
+                $.each(obj, function (key, value) {
+                    selected.push(value[0]);
+                });
+                //var val = document.getElementById('txtBoxId').value;
+                var url = 'Users.aspx?UserID=' + selected.join(',');
+                //window.location = window.location.origin + url;
+                //window.location.href = window.location.origin + url;
+                if (isView)
+                    url += "&isView=" + isView;
+                window.location = url
+                return false;
+            }
             //window.open(url, '_blank');
         }
+        //function DeleteUser() {
+        //    //var obj = GetTableSelectedItems();
+        //    //if (obj.length == 0) {
+        //    //    alert('Select a record to continue');
+        //    //    return;
+        //    //}
+        //    //else if (obj.length > 1) {
+        //    //    alert('Select only One record');
+        //    //    return;
+        //    //}
+        //    ////var val = document.getElementById('txtBoxId').value;
+        //    //var url = 'EditUser.aspx?UserID=' + obj[0][0];
+        //    var data = {};
+        //    data.UserIDs = "133,113";
+        //    $.ajax({
+        //        type: "POST",
+        //        url: "Users.aspx/DeleteUser",
+        //        data: '{UserIDs: "' + data.UserIDs + '" }',
+        //        contentType: "application/json; charset=utf-8",
+        //        dataType: "json",
+        //        success: function (response) {
+        //            alert("Success");
+        //            window.location.reload();
+        //        },
+        //        error: function (response) {
+        //            console.log(response);
+        //        }
+        //    });
+        //    //window.open(url, '_blank');
+        //}
 
     </script>
 

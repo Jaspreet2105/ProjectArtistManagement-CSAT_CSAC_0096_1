@@ -18,6 +18,13 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            string UserID = Request.Params.Get("UserID") != null ? Convert.ToString(Request.Params.Get("UserID")) : "";
+            if (!string.IsNullOrEmpty(UserID))
+            {
+                DeleteUser(UserID);
+            }
+
+
             DataTable dt = new DataTable();
             dt = UsersData();
 
@@ -85,7 +92,8 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                 con.Open();
             }
 
-            string query = "select USR.UserId as 'User ID', USR.FirstName as 'First Name',USR.LastName as 'Last Name', R.RoleName as 'Access Type', DEPT.DName as 'Department' from Users USR LEFT JOIN Department DEPT ON[USR].DeptId = DEPT.DeptId LEFT JOIN Roles R on R.RoleId = USR.RoleId";
+            string query = "select USR.UserId as 'User ID', USR.FirstName as 'First Name',USR.LastName as 'Last Name', R.RoleName as 'Access Type', DEPT.DName as 'Department' from Users USR LEFT JOIN Department DEPT ON[USR].DeptId = DEPT.DeptId LEFT JOIN Roles R on R.RoleId = USR.RoleId"
+                + " where USR.EmailAddress <> '" + Convert.ToString(Session["UserName"])+ "'  and  USR.RoleId <> 1";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.SelectCommand = cmd;
@@ -94,11 +102,19 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
             return ds.Tables[0];
         }
         [System.Web.Services.WebMethod]
-        public static string DeleteUser(string UserIDs)
+        public void DeleteUser(string UserIDs)
         {
             // Call Database 
-            return "success";
-            //return new { success=true};
+            SqlConnection con = new SqlConnection(strcon);
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+
+            string query = "delete from Users where UserId in (" + UserIDs + ")";
+            SqlCommand cmd = new SqlCommand(query, con);
+            int rowsEffected = cmd.ExecuteNonQuery();
+            con.Close();
         }
     }
 }
