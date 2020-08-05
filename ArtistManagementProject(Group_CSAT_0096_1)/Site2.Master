@@ -41,7 +41,7 @@
             margin: 0;
             padding: 0;
             width: 200px;
-            background-color: #f1f1f1;
+            background-color:  #f1f1f1;
             position: relative;
             height: 100%;
             overflow: auto;
@@ -55,7 +55,7 @@
             }
 
                 .sidebar a.active {
-                    background-color: #4CAF50;
+                    background-color: #4b4276;
                     color: white;
                 }
 
@@ -70,7 +70,7 @@
             height: 1000px;
         }
 
-        /*@media screen and (max-width: 700px) {
+        @media screen and (max-width: 700px) {
             .sidebar {
                 width: 100%;
                 height: auto;
@@ -91,7 +91,7 @@
                 text-align: center;
                 float: none;
             }
-        }*/
+        }
     </style>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -188,22 +188,17 @@
 
         <%-- bootstrap button group --%>
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="sidebar">
+        
                         <%--<asp:HyperLink NavigateUrl="~/Users.aspx" ID="linkTest" runat="server" Text="Test"></asp:HyperLink>--%>
                         <%--<asp:LinkButton ID="linkbtn_MyProfile" runat="server" PostBackUrl="~/MyProfile.aspx"><i class="fas fa-address-card"></i>My Profile</asp:LinkButton>--%></li>
             <%--<asp:LinkButton ID="linkUsers" PostBackUrl="~/Users.aspx" runat="server" Text="Users"></asp:LinkButton>--%>
                         <%--<a class="active" href="/Welcome.aspx">Home</a>--%>
-                        <asp:HyperLink CssClass="active" NavigateUrl="~/Welcome.aspx" ID="linkHome" runat="server" Text="Home"></asp:HyperLink>
-                        <asp:HyperLink NavigateUrl="~/MyProfile.aspx" ID="linkMyProfile" runat="server" Text="My Profile"></asp:HyperLink>
-                        <asp:HyperLink NavigateUrl="~/Users.aspx" ID="linkUsers" runat="server" Text="Users"></asp:HyperLink>
-                        <asp:HyperLink NavigateUrl="~/AccessRequest.aspx" ID="linkAccessRequest" runat="server" Text="Access Request"></asp:HyperLink>
+                       
                         <%--<asp:HyperLink NavigateUrl="~/Users.aspx" ID="HyperLink1" runat="server" Text="Test"></asp:HyperLink>--%>
                         <%--<asp:Button ID="Button1" runat="server" Text="Welcom" class="btn btn-primary" PostBackUrl="~/Welcome.aspx" />
                         <asp:Button ID="btn_Welcome" runat="server" Text="Welcome" class="btn btn-primary" PostBackUrl="~/Users.aspx" />--%>
-                    </div>
+                   
+
                     <%--<div class="btn-group-vertical">
             <asp:Button ID="btn_Welcome" runat="server" Text="Welcome" class="btn btn-primary" PostBackUrl="~/Welcome.aspx"/>
             <asp:Button ID="btn_MyProfile" runat="server" Text="My Profile" class="btn btn-primary" OnClick="btn_MyProfile_Click" PostBackUrl="~/MyProfile.aspx"/>
@@ -234,7 +229,17 @@
                 
 </div>
               </div>--%>
+
+        <%--<div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="sidebar">
+                         <asp:HyperLink CssClass="active" NavigateUrl="~/Welcome.aspx" ID="linkWelcome" runat="server" Text="Welcome"></asp:HyperLink>
+                        <asp:HyperLink NavigateUrl="~/MyProfile.aspx" ID="linkMyProfile" runat="server" Text="My Profile"></asp:HyperLink>
+                        <asp:HyperLink NavigateUrl="~/Users.aspx" ID="linkUsers" runat="server" Text="Users"></asp:HyperLink>
+                        <asp:HyperLink NavigateUrl="~/AccessRequest.aspx" ID="linkAccessRequest" runat="server" Text="Access Request"></asp:HyperLink>
                 </div>
+                     </div>
 
                 <div class="col-md-9">
 
@@ -242,7 +247,28 @@
                     </asp:ContentPlaceHolder>
                 </div>
             </div>
-        </div>
+        </div>--%>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="sidebar">
+                         <asp:HyperLink CssClass="active" NavigateUrl="~/Welcome.aspx" ID="linkHome" runat="server" Text="Welcome"><i class="fas fa-home"></i> Welcome </asp:HyperLink>
+                        <asp:HyperLink NavigateUrl="~/MyProfile.aspx" ID="linkMyProfile" runat="server" Text="My Profile"><i class="fas fa-address-card"></i> My Profile</asp:HyperLink>
+                        <asp:HyperLink NavigateUrl="~/Users.aspx" ID="linkUsers" runat="server" Text="Users"><i class="fas fa-user"></i> Users </asp:HyperLink>
+                        <asp:HyperLink NavigateUrl="~/AccessRequest.aspx" ID="linkAccessRequest" runat="server" Text="Access Request"><i class="fas fa-user-circle"></i> Access Requests </asp:HyperLink>
+                </div>
+                     </div>
+                
+           
+                <div class="col-md-9">
+
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+            </div>
+        
 
 
 
