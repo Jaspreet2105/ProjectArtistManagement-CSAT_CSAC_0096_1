@@ -3,7 +3,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
-        Access Requests
+       <br/>
+    <br/>
+    <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">ACCESS REQUESTS </h1>  
     </div>
     <script>
         $(document).ready(function () {

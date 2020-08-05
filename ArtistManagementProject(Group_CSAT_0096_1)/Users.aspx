@@ -3,6 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <br/>
+    <br/>
+    <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">USERS </h1>
     <div id="contentDiv">
 
         <div class="row">
@@ -21,8 +24,11 @@
                 "btn btn-primary" OnClientClick="alert('Edit')"/>
             <asp:Button ID="btn_Delete" runat="server" Text="Delete" class=
                 "btn btn-primary" OnClientClick="alert('Delete')"/>--%>
+                
             </div>
         </div>
+        <br/>
+        <br/>
         <div class="row">
             <div class="col-md-12">
                 <asp:PlaceHolder ID="PlaceHolder1" runat="server" />
