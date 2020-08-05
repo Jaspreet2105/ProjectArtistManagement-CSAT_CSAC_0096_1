@@ -106,20 +106,22 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                 {
                     con.Open();
                 }
-                string query = "update users  set "
+                string update = "update users  set "
                                 //+"EmailAddress = '"+emailAddress+"'"
-                                + " Password= '" + newPassword + "' "
                                 //+ "ConfirmPassword = '" + emailAddress + "'"
-                                + " ,FirstName = '" + firstName + "' "
+                                + " FirstName = '" + firstName + "' "
                                 + " ,LastName = '" + lasttName + "' "
                                 + " ,DateOfBirth = '" + DOB + "' "
                                 + " ,PhoneNumber = '" + phoneNumber + "' "
                                 + " ,Address = '" + fullAddress + "' "
                                 + " ,PostalCode = '" + postalCode + "' "
                                 + " ,RoleId = " + accessType
-                                + " ,DeptId = " + departmentType
-                                + " where EmailAddress = '" + emailAddress + "' ";
-                SqlCommand cmd = new SqlCommand(query, con);
+                                + " ,DeptId = " + departmentType;
+                if (!string.IsNullOrEmpty(newPassword))
+                    update += " ,Password= '" + newPassword + "' ";
+                string where = " where EmailAddress = '" + emailAddress + "' ";
+                string finalQuery = update + where;
+                SqlCommand cmd = new SqlCommand(finalQuery, con);
                 int records = cmd.ExecuteNonQuery();
                 con.Close();
             }
