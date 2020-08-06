@@ -11,8 +11,8 @@
         <div class="row">
             <div class="col-md-6 offset-6">
                 <%--<button value="Create" name="btnCreate" onclick="alert('Create')"></button>--%>
-                <asp:LinkButton PostBackUrl="~/AddUser.aspx" ID="btn_Created" runat="server" CssClass="btn btn-small btn-primary"><i class="fas fa-plus-circle"></i>&nbsp;Create</asp:LinkButton>
-                <button id="btnEdit" class="btn btn-small btn-primary" onclick="return EditPage()"><i class="fas fa-pencil-alt"></i>&nbsp;Edit</button>
+                <asp:LinkButton ID="btn_Approve" runat="server" CssClass="btn btn-small btn-primary"><i class="fas fa-thumbs-up"></i>&nbsp;Approve</asp:LinkButton>
+                <button id="btn_Decline" class="btn btn-small btn-primary"><i class="fas fa-thumbs-down"></i>&nbsp;Decline</button>
             </div>
         </div>
         <br />

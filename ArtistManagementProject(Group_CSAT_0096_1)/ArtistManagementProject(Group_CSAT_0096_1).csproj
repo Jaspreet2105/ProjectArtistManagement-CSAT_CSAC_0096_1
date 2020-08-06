@@ -1721,6 +1721,7 @@
     <Content Include="fontawesome\webfonts\fa-solid-900.svg" />
     <Content Include="Images\AM logo.jpg" />
     <Content Include="Images\LoginImg.jpg" />
+    <Content Include="Images\new AM logo.jpg" />
     <Content Include="Images\userimg.png" />
     <Content Include="ourcss\dataTables.bootstrap4.min.css" />
     <Content Include="ourcss\ourstylesheet.css" />

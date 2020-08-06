@@ -103,8 +103,8 @@
         <div>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a class="navbar-brand" href="#">
-                    <img src="images/AM logo.jpg" width="100" height="50" />
-                    ARTIST MANAGEMENT
+                    <%--<img src="images/new AM logo.jpg" width="100" height="50" />--%>
+                    <h2>ARTIST MANAGEMENT</h2>
                 </a>
 
                 <%-- This button will toggle navigation for responsive action as per mobile, tablet and browser --%>
