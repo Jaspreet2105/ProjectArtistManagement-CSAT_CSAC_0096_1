@@ -13,13 +13,22 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_ {
     public partial class WebForm5 {
         
         /// <summary>
-        /// Label1 control.
+        /// lbl_AccessRequestText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lbl_AccessRequestText;
+        
+        /// <summary>
+        /// lbl_RequestStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_RequestStatus;
         
         /// <summary>
         /// txt_FirstName control.

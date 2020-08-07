@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 
 namespace ArtistManagementProject_Group_CSAT_0096_1_
 {
@@ -17,14 +18,17 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
         {
             try
             {
-
-                //if (Session["role"].Equals("1"))
-                //{
-
-                //   dropdown_Department.
-
-
-                //}
+                btn_RequestElevatedAccess.Visible = false;
+                if (Session["role"].Equals("3"))
+                {
+                    //btn_RequestElevatedAccess.Visible = false;
+                    SetRequestStatus();
+                }
+                else
+                {
+                    lbl_AccessRequestText.Visible = false;
+                    lbl_RequestStatus.Visible = false;
+                }
 
                 dropdown_AccessType.Attributes.Add("disabled", "disabled");
                 dropdown_Department.Attributes.Add("disabled", "disabled");
@@ -36,11 +40,11 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                 else
                 {
 
-                    if (!IsPostBack)
-                    {
+                    //if (!IsPostBack)
+                    //{
 
                         getUserDetail();
-                    }
+                    //}
                 }
             }
 
@@ -50,7 +54,44 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                 Response.Redirect("Login.aspx");
             }
         }
+        private void SetRequestStatus()
+        {
+            SqlConnection con = new SqlConnection(strcon);
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
 
+            string query = "select ar.Rstatus from users u inner join AccessRequest ar on ar.UserId = u.UserId where u.UserId = " + Session["UserID"];
+            SqlCommand cmd = new SqlCommand(query, con);
+
+            SqlDataAdapter ad = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+
+            if (dt.Rows.Count > 0)
+            {
+                //btn_RequestElevatedAccess.Visible = false;
+                string requestStatus = dt.Rows[0]["Rstatus"].ToString();
+                switch (requestStatus)
+                {
+                    case "Approved":
+                        lbl_RequestStatus.Text = "Approved";
+                        lbl_RequestStatus.ForeColor = Color.Green;
+                        break;
+                    case "Declined":
+                        lbl_RequestStatus.Text = "Declined";
+                        lbl_RequestStatus.ForeColor = Color.Red;
+                        break;
+                    default:
+                        lbl_RequestStatus.Text = "Pending";
+                        lbl_RequestStatus.ForeColor = Color.DarkKhaki;
+                        break;
+                }
+            }
+            else
+                btn_RequestElevatedAccess.Visible = true;
+        }
         void getUserDetail()
         {
             try
@@ -172,6 +213,36 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
             }
 
 
+        }
+
+        protected void btn_RequestElevatedAccess_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(strcon);
+            if (con.State == ConnectionState.Closed)
+            {
+                con.Open();
+            }
+
+            string query = " insert into accessrequest(Rstatus,RequestedAt,UserId) "
+                        + " values('Active' "
+                        + " , getdate() "
+                        + " ," + Convert.ToString(Session["UserID"])
+                        + " )";
+            SqlCommand cmd = new SqlCommand(query, con);
+            int rowsEffected = cmd.ExecuteNonQuery();
+            btn_RequestElevatedAccess.Visible = false;
+            SetRequestStatus();
+            //if (rowsEffected > 0)// If admin approves the request, Need to update user role to manager
+            //{
+            //    query = " update u "
+            //            + " set  RoleId = 2 " //RequestStatus = ar.Rstatus,
+            //            + " from users u "
+            //            + " inner join AccessRequest ar on ar.UserId = u.UserId "
+            //            + " where ar.Rid in (" + RID + ")";
+            //    cmd = new SqlCommand(query, con);
+            //    rowsEffected = cmd.ExecuteNonQuery();
+            //}
+            con.Close();
         }
     }
 

@@ -19,8 +19,9 @@
                             <div class="col">
                                 <center>
                            <h4>My Profile</h4>
-                           <span>Account Status - </span>
-                           <asp:Label class="badge badge-pill badge-info" ID="Label1" runat="server" Text="Your Status"></asp:Label>
+                           
+                                    <asp:Label ID="lbl_AccessRequestText" runat="server" Text="Access Request Status :"></asp:Label>
+                           <asp:Label style="font-size:1.3em" class="badge badge-pill" ID="lbl_RequestStatus" runat="server" Text="No Elevated Access"></asp:Label>
                         </center>
                             </div>
                         </div>
@@ -57,7 +58,6 @@
                                 <label>Access Type</label>
                                 <div class="form-group">
                                     <asp:DropDownList class="form-control" ID="dropdown_AccessType" runat="server">
-                                        <asp:ListItem Text="Select" Value="select" />
                                         <asp:ListItem Text="Artist" Value="3" />
                                         <asp:ListItem Text="Manager" Value="2" />
                                         <asp:ListItem Text="Admin" Value="1" />
@@ -144,7 +144,8 @@
                             <div class="col-6">
                                 <center>
                            <div class="form-group">
-                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="btn_RequestElevatedAccess" runat="server" Text="Request Elevated Access" />
+                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="btn_RequestElevatedAccess" runat="server" Text="Request Elevated Access" OnClick="btn_RequestElevatedAccess_Click" />
+                               <%--<asp:Label ID="lbl_RequestStatus" CssClass="Welcome" runat="server" Text="Label"></asp:Label>--%>
                            </div>
                         </center>
                             </div>

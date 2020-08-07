@@ -53,7 +53,8 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                         Session["firstname"] = dr.GetValue(4).ToString();
                         Session["UserName"] = dr.GetValue(1).ToString();
                         Session["role"] = dr.GetValue(10).ToString();
-                        
+                        Session["UserID"] = dr.GetValue(0).ToString();
+
                         //Session["RequestStatus"]= dr.GetValue(12).ToString();
 
                     }
