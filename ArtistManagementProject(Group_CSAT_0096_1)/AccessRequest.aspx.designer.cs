@@ -13,15 +13,6 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_ {
     public partial class WebForm9 {
         
         /// <summary>
-        /// btn_Approve control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btn_Approve;
-        
-        /// <summary>
         /// PlaceHolder1 control.
         /// </summary>
         /// <remarks>
