@@ -80,6 +80,20 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                 UserAdded.Controls.Add(new Literal { Text = userHTML.ToString() });
                 Session["isUserAdded"] = false;
             }
+            if (Convert.ToBoolean(Session["UserUpdated"]))
+            {
+                StringBuilder userHTML = new StringBuilder();
+                userHTML.Append("<script>alert('User Updated successfully')</script>");
+                UserAdded.Controls.Add(new Literal { Text = userHTML.ToString() });
+                Session["UserUpdated"] = false;
+            }
+            if (Convert.ToBoolean(Session["UserDeleted"]))
+            {
+                StringBuilder userHTML = new StringBuilder();
+                userHTML.Append("<script>alert('User(s) Deleted successfully')</script>");
+                UserAdded.Controls.Add(new Literal { Text = userHTML.ToString() });
+                Session["UserDeleted"] = false;
+            }
 
         }
 
@@ -93,7 +107,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
             }
 
             string query = "select USR.UserId as 'User ID', USR.FirstName as 'First Name',USR.LastName as 'Last Name', R.RoleName as 'Access Type', DEPT.DName as 'Department' from Users USR LEFT JOIN Department DEPT ON[USR].DeptId = DEPT.DeptId LEFT JOIN Roles R on R.RoleId = USR.RoleId"
-                + " where USR.EmailAddress <> '" + Convert.ToString(Session["UserName"])+ "'  and  USR.RoleId <> 1";
+                + " where USR.EmailAddress <> '" + Convert.ToString(Session["UserName"]) + "'  and  USR.RoleId <> 1";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.SelectCommand = cmd;
@@ -114,6 +128,8 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
             string query = "delete from Users where UserId in (" + UserIDs + ")";
             SqlCommand cmd = new SqlCommand(query, con);
             int rowsEffected = cmd.ExecuteNonQuery();
+            if (rowsEffected > 0)
+                Session["UserDeleted"] = true;
             con.Close();
         }
     }

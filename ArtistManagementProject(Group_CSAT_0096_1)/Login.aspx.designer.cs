@@ -22,6 +22,15 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_ {
         protected global::System.Web.UI.WebControls.TextBox txt_UserName;
         
         /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
         /// txt_Password control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_ {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_Password;
+        
+        /// <summary>
+        /// requiredfieldvalidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredfieldvalidator2;
         
         /// <summary>
         /// btn_LogIn control.
@@ -40,12 +58,12 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_ {
         protected global::System.Web.UI.WebControls.Button btn_LogIn;
         
         /// <summary>
-        /// btn_SignUp control.
+        /// UserAdded control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_SignUp;
+        protected global::System.Web.UI.WebControls.PlaceHolder UserAdded;
     }
 }

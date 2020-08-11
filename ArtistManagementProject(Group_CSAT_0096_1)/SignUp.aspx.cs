@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ArtistManagementProject_Group_CSAT_0096_1_.Helpers;
 
 namespace ArtistManagementProject_Group_CSAT_0096_1_
 {
@@ -19,7 +20,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
         }
 
         protected void btn_SignUp_Click(object sender, EventArgs e)
-      {
+        {
             //Response.Write("<script>alert('testing');</script>");
             try
             {
@@ -33,29 +34,39 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
 
                     if (isHuman)
                     {
-                        CaptchaErrorLabel.Visible = false;
-                        // TODO: proceed with protected action
-                        SqlConnection con = new SqlConnection(strcon);
-                        if (con.State == ConnectionState.Closed)
+                        if (CommonHelpers.IsDuplicateEmail(txt_Email.Text))
                         {
-                            con.Open();
+                            lbl_EmailID.Text = "Email Already exists";
+                            lbl_EmailID.Visible = true;
                         }
+                        else
+                        {
+                            CaptchaErrorLabel.Visible = false;
+                            // TODO: proceed with protected action
+                            SqlConnection con = new SqlConnection(strcon);
+                            if (con.State == ConnectionState.Closed)
+                            {
+                                con.Open();
+                            }
 
-                        string query = "INSERT INTO Users(EmailAddress,Password,ConfirmPassword,FirstName,LastName,DateOfBirth,RoleId)VALUES(@EmailAddress,@Password,@ConfirmPassword,@FirstName,@LastName,@DateOfBirth,@RoleId)";
-                        SqlCommand cmd = new SqlCommand(query, con);
+                            string query = "INSERT INTO Users(EmailAddress,Password,FirstName,LastName,DateOfBirth,RoleId)VALUES(@EmailAddress,@Password,@FirstName,@LastName,@DateOfBirth,@RoleId)";
+                            SqlCommand cmd = new SqlCommand(query, con);
 
-                        cmd.Parameters.AddWithValue("@EmailAddress", txt_Email.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Password", txt_Password.Text.Trim());
-                        cmd.Parameters.AddWithValue("@ConfirmPassword", txt_ConfirmPassword.Text.Trim());
-                        cmd.Parameters.AddWithValue("@FirstName", txt_FirstName.Text.Trim());
-                        cmd.Parameters.AddWithValue("@LastName", txt_LastName.Text.Trim());
-                        cmd.Parameters.AddWithValue("@DateOfBirth", txt_Dob.Value.Trim()); //having html date textbox
-                        cmd.Parameters.AddWithValue("@RoleId", "3");
+                            cmd.Parameters.AddWithValue("@EmailAddress", txt_Email.Text.Trim());
+                            cmd.Parameters.AddWithValue("@Password", CommonHelpers.Encrypt(txt_Password.Text));
+                            //cmd.Parameters.AddWithValue("@ConfirmPassword", txt_ConfirmPassword.Text.Trim());
+                            cmd.Parameters.AddWithValue("@FirstName", txt_FirstName.Text.Trim());
+                            cmd.Parameters.AddWithValue("@LastName", txt_LastName.Text.Trim());
+                            cmd.Parameters.AddWithValue("@DateOfBirth", txt_Dob.Value.Trim()); //having html date textbox
+                            cmd.Parameters.AddWithValue("@RoleId", "3");
 
-                        cmd.ExecuteNonQuery();
-                        con.Close();
+                            cmd.ExecuteNonQuery();
+                            con.Close();
 
-                        Response.Write("<script>alert('Registration Successful. ');</script>");
+                            //Response.Write("<script>alert('Registration Successful. ');</script>");
+                            Session["UserSignUp"] = true;
+                            Response.Redirect("Login.aspx");
+                        }
                     }
                     else
                     {
@@ -63,20 +74,20 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                         CaptchaErrorLabel.Text = "Captcha failed";
                     }
                 }
-                
+
             }
 
-           
-            
+
+
             catch (Exception ex)
             {
-                Response.Write("<script>alert('"+ex.Message+"')</script>");
+                Response.Write("<script>alert('" + ex.Message + "')</script>");
 
             }
 
             //ClearTextBoxes(this);
 
-            
+
         }
 
         //private void ClearTextBoxes(Control control)

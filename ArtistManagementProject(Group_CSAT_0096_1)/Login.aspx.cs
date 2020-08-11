@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
+using System.Text;
+using ArtistManagementProject_Group_CSAT_0096_1_.Helpers;
 
 namespace ArtistManagementProject_Group_CSAT_0096_1_
 {
@@ -15,14 +17,22 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
         string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
 
         protected void Page_Load(object sender, EventArgs e)
-        {
 
+        {
+            if (Convert.ToBoolean(Session["UserSignUp"]))
+            {
+                StringBuilder userHTML = new StringBuilder();
+                userHTML.Append("<script>alert('Registration Successful')</script>");
+                UserAdded.Controls.Add(new Literal { Text = userHTML.ToString() });
+                Session["UserSignUp"] = false;
+            }
         }
 
         protected void btn_LogIn_Click(object sender, EventArgs e)
         {
             //Response.Write("<script>alert('testing');</script>");
-            try {
+            try
+            {
 
                 SqlConnection con = new SqlConnection(strcon);
                 if (con.State == ConnectionState.Closed)
@@ -38,10 +48,10 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
 
 
                 string query = "SELECT * FROM Users where EmailAddress = @email AND Password= @password";
-                SqlCommand cmd = new SqlCommand(query,con);
+                SqlCommand cmd = new SqlCommand(query, con);
 
                 cmd.Parameters.AddWithValue("@email", txt_UserName.Text.Trim());
-                cmd.Parameters.AddWithValue("@Password", txt_Password.Text.Trim());
+                cmd.Parameters.AddWithValue("@Password", CommonHelpers.Encrypt(txt_Password.Text));
 
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
@@ -50,26 +60,28 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                     {
                         //if login is successfull, this 2 sessions will be created
                         Response.Write("<script>alert('LogIn Successful');</script>");
-                        Session["firstname"] = dr.GetValue(4).ToString();
-                        Session["UserName"] = dr.GetValue(1).ToString();
-                        Session["role"] = dr.GetValue(10).ToString();
-                        Session["UserID"] = dr.GetValue(0).ToString();
+                        Session["firstname"] = dr["FirstName"].ToString();
+                        Session["UserName"] = dr["EmailAddress"].ToString();
+                        Session["role"] = dr["RoleId"].ToString();
+                        Session["UserID"] = dr["UserId"].ToString();
 
                         //Session["RequestStatus"]= dr.GetValue(12).ToString();
 
                     }
                     Response.Redirect("Welcome.aspx");
                 }
-                else {
+                else
+                {
 
                     Response.Write("<script>alert('Invalid User');</script>");
                 }
-                
+
 
 
 
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
 
                 Response.Write("<script>alert('" + ex.Message + "')</script>");
 

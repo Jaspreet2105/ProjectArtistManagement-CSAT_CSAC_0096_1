@@ -8,6 +8,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using ArtistManagementProject_Group_CSAT_0096_1_.Helpers;
 
 namespace ArtistManagementProject_Group_CSAT_0096_1_
 {
@@ -40,11 +41,11 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                 else
                 {
 
-                    //if (!IsPostBack)
-                    //{
+                    if (!IsPostBack)
+                    {
 
                         getUserDetail();
-                    //}
+                    }
                 }
             }
 
@@ -102,7 +103,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                     con.Open();
                 }
 
-                string query = "SELECT Users.*,dpt.DName FROM Users  inner join department dpt on dpt.DeptId= Users.DeptId where EmailAddress = @email";
+                string query = "SELECT Users.*,dpt.DName FROM Users  left join department dpt on dpt.DeptId= Users.DeptId where EmailAddress = @email";
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 cmd.Parameters.AddWithValue("@email", Session["UserName"].ToString());
@@ -118,7 +119,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                 txt_PostalCode.Text = dt.Rows[0]["PostalCode"].ToString();
                 txt_PhnNo.Text = dt.Rows[0]["PhoneNumber"].ToString();
                 txt_Email.Text = dt.Rows[0]["EmailAddress"].ToString();
-                txt_OldPassword.Text = dt.Rows[0]["Password"].ToString();
+                //txt_OldPassword.Text = dt.Rows[0]["Password"].ToString();
 
 
                 dropdown_Department.Items.Add(new ListItem(dt.Rows[0]["DName"].ToString(), dt.Rows[0]["DeptId"].ToString()));
@@ -143,36 +144,69 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
 
         void UpdateUserDetail()
         {
-            string password = "";
-            if (txt_NewPassword.Text.Trim() == "")
-            {
-                password = txt_OldPassword.Text.Trim();
-            }
-            else
-            {
-                password = txt_NewPassword.Text.Trim();
-            }
+            //string password = "";
+            //if (txt_NewPassword.Text.Trim() == "")
+            //{
+            //    password = txt_OldPassword.Text.Trim();
+            //}
+            //else
+            //{
+            //    password = txt_NewPassword.Text.Trim();
+            //}
             try
             {
+                //SqlConnection con = new SqlConnection(strcon);
+                //if (con.State == ConnectionState.Closed)
+                //{
+                //    con.Open();
+                //}
+
+                //String query = "UPDATE Users set FirstName=@FirstName, LastName=@LastName, DateOfBirth=@DateOfBirth,Address=@Address,PostalCode=@PostalCode,PhoneNumber=@PhoneNumber,Password=@Password,ConfirmPassword=@ConfirmPassword where EmailAddress = @EmailAddress";
+                //SqlCommand cmd = new SqlCommand(query, con);
+
+                //cmd.Parameters.AddWithValue("@FirstName", txt_FirstName.Text.Trim());
+                //cmd.Parameters.AddWithValue("@LastName", txt_LastName.Text.Trim());
+                //cmd.Parameters.AddWithValue("@DateOfBirth", txt_DOB.Value.Trim());
+                //cmd.Parameters.AddWithValue("@Address", txt_FullAddress.Text.Trim());
+                //cmd.Parameters.AddWithValue("@PostalCode", txt_PostalCode.Text.Trim());
+                //cmd.Parameters.AddWithValue("@PhoneNumber", txt_PhnNo.Text.Trim());
+                //cmd.Parameters.AddWithValue("@EmailAddress", Session["UserName"].ToString().Trim());
+                //cmd.Parameters.AddWithValue("@Password", password);
+                //cmd.Parameters.AddWithValue("@ConfirmPassword", password);
+
+
+                string firstName = txt_FirstName.Text;
+                string lasttName = txt_LastName.Text;
+                string DOB = txt_DOB.Value;
+                string phoneNumber = txt_PhnNo.Text;
+                string fullAddress = txt_FullAddress.Text;
+                string emailAddress = txt_Email.Text;
+                string postalCode = txt_PostalCode.Text;
+                string newPassword = txt_NewPassword.Text;
+                //string newConfirmPassword = txt_NewConfirmPassword.Text;
+                //string departmentType = dropdown_Department.SelectedValue;
+                //string accessType = dropdown_AccessType.SelectedValue;
                 SqlConnection con = new SqlConnection(strcon);
                 if (con.State == ConnectionState.Closed)
                 {
                     con.Open();
                 }
-
-                String query = "UPDATE Users set FirstName=@FirstName, LastName=@LastName, DateOfBirth=@DateOfBirth,Address=@Address,PostalCode=@PostalCode,PhoneNumber=@PhoneNumber,Password=@Password,ConfirmPassword=@ConfirmPassword where EmailAddress = @EmailAddress";
-                SqlCommand cmd = new SqlCommand(query, con);
-
-                cmd.Parameters.AddWithValue("@FirstName", txt_FirstName.Text.Trim());
-                cmd.Parameters.AddWithValue("@LastName", txt_LastName.Text.Trim());
-                cmd.Parameters.AddWithValue("@DateOfBirth", txt_DOB.Value.Trim());
-                cmd.Parameters.AddWithValue("@Address", txt_FullAddress.Text.Trim());
-                cmd.Parameters.AddWithValue("@PostalCode", txt_PostalCode.Text.Trim());
-                cmd.Parameters.AddWithValue("@PhoneNumber", txt_PhnNo.Text.Trim());
-                cmd.Parameters.AddWithValue("@EmailAddress", Session["UserName"].ToString().Trim());
-                cmd.Parameters.AddWithValue("@Password", password);
-                cmd.Parameters.AddWithValue("@ConfirmPassword", password);
-
+                string update = "update users  set "
+                                //+"EmailAddress = '"+emailAddress+"'"
+                                //+ "ConfirmPassword = '" + emailAddress + "'"
+                                + " FirstName = '" + firstName + "' "
+                                + " ,LastName = '" + lasttName + "' "
+                                + " ,DateOfBirth = '" + DOB + "' "
+                                + " ,PhoneNumber = '" + phoneNumber + "' "
+                                + " ,Address = '" + fullAddress + "' "
+                                + " ,PostalCode = '" + postalCode + "' ";
+                //+ " ,RoleId = " + accessType
+                //+ " ,DeptId = " + departmentType;
+                if (!string.IsNullOrEmpty(newPassword))
+                    update += " ,Password= '" + CommonHelpers.Encrypt(newPassword) + "' ";
+                string where = " where EmailAddress = '" + Session["UserName"].ToString() + "' ";
+                string finalQuery = update + where;
+                SqlCommand cmd = new SqlCommand(finalQuery, con);
                 int result = cmd.ExecuteNonQuery();
                 con.Close();
                 if (result > 0)
@@ -232,6 +266,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
             int rowsEffected = cmd.ExecuteNonQuery();
             btn_RequestElevatedAccess.Visible = false;
             SetRequestStatus();
+            getUserDetail();
             //if (rowsEffected > 0)// If admin approves the request, Need to update user role to manager
             //{
             //    query = " update u "
