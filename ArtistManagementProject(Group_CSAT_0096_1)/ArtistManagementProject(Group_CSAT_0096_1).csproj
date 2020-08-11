@@ -1750,6 +1750,7 @@
     <Compile Include="CheckLogin.ascx.designer.cs">
       <DependentUpon>CheckLogin.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\CommonHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignUp.aspx.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>

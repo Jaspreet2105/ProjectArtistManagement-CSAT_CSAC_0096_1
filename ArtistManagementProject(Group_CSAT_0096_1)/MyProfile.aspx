@@ -111,12 +111,12 @@
                                     <asp:TextBox CssClass="form-control" ID="txt_Email" runat="server" placeholder="Email ID" TextMode="Email" ReadOnly="True"></asp:TextBox>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <%--<div class="col-md-6">
                                 <label>Old Password</label>
                                 <div class="form-group">
                                     <asp:TextBox class="form-control" ID="txt_OldPassword" runat="server" placeholder="Old Password" ReadOnly="True"></asp:TextBox>
                                 </div>
-                            </div>
+                            </div>--%>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
@@ -129,6 +129,7 @@
                                 <label>Confirm Password</label>
                                 <div class="form-group">
                                     <asp:TextBox class="form-control" ID="txt_NewConfirmPassword" runat="server" placeholder="Confirm Password" TextMode="Password" CausesValidation="True"></asp:TextBox>
+                                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txt_NewPassword" ControlToValidate="txt_NewConfirmPassword" ErrorMessage="Password must match" ForeColor="Red"></asp:CompareValidator>
                                 </div>
                             </div>
                         </div>

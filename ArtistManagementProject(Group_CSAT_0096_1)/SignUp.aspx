@@ -1,5 +1,6 @@
 ﻿<%@ Register Assembly="BotDetect" Namespace="BotDetect.Web.UI"
     TagPrefix="BotDetect" %>
+
 <%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="SignUp.aspx.cs" Inherits="ArtistManagementProject_Group_CSAT_0096_1_.SignUp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -32,9 +33,11 @@
                         </div>
                         <div class="row">
                             <div class="col">
+                                <label style="color: red">** All fields are mandatory</label><br/>
                                 <label>Email Address</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="txt_Email" runat="server" placeholder="Email"></asp:TextBox>
+                                    <asp:Label ID="lbl_EmailID" runat="server" Visible="false" ForeColor="Red"></asp:Label>
                                 </div>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txt_Email" ErrorMessage="This field is required" ForeColor="Red"></asp:RequiredFieldValidator>
                                 <br />
@@ -50,32 +53,32 @@
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="txt_ConfirmPassword" runat="server" placeholder="Confirm Password" TextMode="Password"></asp:TextBox>
                                 </div>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txt_Password" ErrorMessage="This field is required" ForeColor="Red"></asp:RequiredFieldValidator><br/>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txt_Password" ErrorMessage="This field is required" ForeColor="Red"></asp:RequiredFieldValidator><br />
                                 <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txt_Password" ControlToValidate="txt_ConfirmPassword" ErrorMessage="Password must match" ForeColor="Red"></asp:CompareValidator>
                                 <br />
-                                <label>First Name </label>
+                                <label>First Name</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="txt_FirstName" runat="server" placeholder="First Name"></asp:TextBox>
                                 </div>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="This field is required" ControlToValidate="txt_FirstName"  ForeColor="Red"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="This field is required" ControlToValidate="txt_FirstName" ForeColor="Red"></asp:RequiredFieldValidator>
                                 <br />
-                                <label>Last Name </label>
+                                <label>Last Name</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="txt_LastName" runat="server" placeholder="Last Name"></asp:TextBox>
                                 </div>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="This field is required" ControlToValidate="txt_LastName"  ForeColor="Red"></asp:RequiredFieldValidator>
-                                <br/>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="This field is required" ControlToValidate="txt_LastName" ForeColor="Red"></asp:RequiredFieldValidator>
+                                <br />
                                 <label>Date of Birth </label>
                                 <div class="form-group">
                                     <input type="date" class="form-control" id="txt_Dob" runat="server" placeholder="Date of Birth" />
                                 </div>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="This field is required" ControlToValidate="txt_Dob"  ForeColor="Red"></asp:RequiredFieldValidator>
-                                <br/>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="This field is required" ControlToValidate="txt_Dob" ForeColor="Red"></asp:RequiredFieldValidator>
+                                <br />
                                 <div class="form-group">
-                                   <BotDetect:WebFormsCaptcha ID="ExampleCaptcha" 
-                           UserInputID="CaptchaCode" runat="server" />
+                                    <BotDetect:WebFormsCaptcha ID="ExampleCaptcha"
+                                        UserInputID="CaptchaCode" runat="server" />
                                     <asp:Label ID="CaptchaLabel" runat="server" AssociatedControlID="CaptchaCode">
-  Retype the characters from the picture:
+                        Retype the characters from the picture:
                                     </asp:Label>
                                     <br />
                                     <asp:TextBox ID="CaptchaCode" runat="server" />

@@ -33,13 +33,14 @@
                                 <label>First Name</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="txt_FirstName" runat="server" placeholder="First Name"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txt_FirstName" ErrorMessage="*Required" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txt_FirstName" ErrorMessage="This field is required" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <label>Last Name</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="txt_LastName" runat="server" placeholder="Last Name"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txt_LastName" ErrorMessage="This field is required" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
 
@@ -47,6 +48,7 @@
                                 <label>Date of Birth</label>
                                 <div class="form-group">
                                     <input type="date" class="form-control" id="txt_DOB" runat="server" placeholder="Date of Birth" />
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txt_DOB" ErrorMessage="This field is required" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </div>
 
                             </div>
@@ -57,22 +59,23 @@
                                 <label>Access Type</label>
                                 <div class="form-group">
                                     <asp:DropDownList class="form-control" ID="dropdown_AccessType" runat="server">
-                                        <asp:ListItem Text="Select" Value="select" />
+                                        <asp:ListItem Selected="True" Text="Select" Value="-1" />
                                         <asp:ListItem Text="Artist" Value="3" />
                                         <asp:ListItem Text="Manager" Value="2" />
                                         <asp:ListItem Text="Admin" Value="1" />
                                     </asp:DropDownList>
+                                    <asp:RequiredFieldValidator InitialValue="-1" ID="RequiredFieldValidator8" runat="server" ControlToValidate="dropdown_AccessType" ErrorMessage="This field is required" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <label>Department</label>
                                 <div class="form-group">
-                                    <asp:DropDownList class="form-control" ID="dropdown_Department" runat="server">
-                                        <asp:ListItem Text="Select" Value="select" />
-
+                                    <asp:DropDownList class="form-control" ID="dropdown_Department" ValidationGroup="g1" runat="server">
+                                        <asp:ListItem Text="Select" Value="-1" />
                                         <asp:ListItem />
                                     </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ValidationGroup="g1" InitialValue="-1" Display="Dynamic" ID="RequiredFieldValidator7" runat="server" ControlToValidate="dropdown_Department" ErrorMessage="This field is required" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
 
@@ -83,6 +86,7 @@
                                 <label>Full Address</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="txt_FullAddress" runat="server" placeholder="Full Address" TextMode="MultiLine" Rows="2"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txt_FullAddress" ErrorMessage="This field is required" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                         </div>
@@ -91,12 +95,14 @@
                                 <label>PostalCode</label>
                                 <div class="form-group">
                                     <asp:TextBox class="form-control" ID="txt_PostalCode" runat="server" placeholder="PostalCode"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txt_PostalCode" ErrorMessage="This field is required" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <label>Phone Number</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="txt_PhnNo" runat="server" placeholder="Phone Number" TextMode="Number"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txt_PhnNo" ErrorMessage="This field is required" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
                         </div>
@@ -130,6 +136,7 @@
                                 <asp:Label ID="lbl_ConfirmPassword" Text="Confirm Password" runat="server"></asp:Label>
                                 <div class="form-group">
                                     <asp:TextBox class="form-control" ID="txt_NewConfirmPassword" runat="server" placeholder="Confirm Password" TextMode="Password" CausesValidation="True"></asp:TextBox>
+                                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txt_NewPassword" ControlToValidate="txt_NewConfirmPassword" ErrorMessage="Password must match" ForeColor="Red"></asp:CompareValidator>
                                 </div>
                             </div>
                         </div>
@@ -145,7 +152,8 @@
                             <div class="col-6">
                                 <center>
                            <div class="form-group">
-                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="btn_Cancel" runat="server" Text="Cancel" />
+                              <%--<asp:Button class="btn btn-primary btn-block btn-lg" ID="btn_Cancel" runat="server" Text="Cancel" />--%>
+                               <a href="Users.aspx" class="btn btn-primary btn-block btn-lg"  id="btn_Cancel" >Back</a>
                            </div>
                         </center>
                             </div>
