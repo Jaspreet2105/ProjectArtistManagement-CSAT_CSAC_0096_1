@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArtistManagementProject_Group_CSAT_0096_1_.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -43,7 +44,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
             txt_NewPassword.Visible = false;
             txt_NewConfirmPassword.Visible = false;
             btn_Update.Visible = false;
-            btn_Cancel.Visible = false;
+            //btn_Cancel.Visible = false;
             lbl_NewPassword.Visible = false;
             lbl_ConfirmPassword.Visible = false;
         }
@@ -79,7 +80,8 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
 
             txt_FirstName.Text = Convert.ToString(data["FirstName"]);
             txt_LastName.Text = Convert.ToString(data["LastName"]);
-            txt_DOB.Value = Convert.ToDateTime(data["DateOfBirth"]).ToString("dd-mm-yyyy");
+            //txt_DOB.Value = Convert.ToDateTime(data["DateOfBirth"]).ToString("dd-mm-yyyy");
+            txt_DOB.Value = Convert.ToDateTime(data["DateOfBirth"]).ToString("yyyy-MM-dd");
             txt_PhnNo.Text = Convert.ToString(data["PhoneNumber"]);
             txt_FullAddress.Text = Convert.ToString(data["Address"]);
             txt_Email.Text = Convert.ToString(data["EmailAddress"]);
@@ -118,12 +120,14 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                                 + " ,RoleId = " + accessType
                                 + " ,DeptId = " + departmentType;
                 if (!string.IsNullOrEmpty(newPassword))
-                    update += " ,Password= '" + newPassword + "' ";
+                    update += " ,Password= '" + CommonHelpers.Encrypt(newPassword) + "' ";
                 string where = " where EmailAddress = '" + emailAddress + "' ";
                 string finalQuery = update + where;
                 SqlCommand cmd = new SqlCommand(finalQuery, con);
                 int records = cmd.ExecuteNonQuery();
                 con.Close();
+                Session["UserUpdated"] = true;
+                Response.Redirect("Users.aspx");
             }
         }
         private bool IsDuplicateEmail()

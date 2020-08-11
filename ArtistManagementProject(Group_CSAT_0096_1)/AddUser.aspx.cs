@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArtistManagementProject_Group_CSAT_0096_1_.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -49,7 +50,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
         {
             if (IsPostBack)
             {
-                if (IsDuplicateEmail())
+                if (CommonHelpers.IsDuplicateEmail(txt_Email.Text))
                 {
                     lbl_EmailID.Text = "Email Already exists";
                     lbl_EmailID.Visible = true;
@@ -62,12 +63,12 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                         con.Open();
                     }
 
-                    string query = "INSERT INTO Users(EmailAddress,Password,ConfirmPassword,FirstName,LastName,DateOfBirth,RoleId,DeptId,PhoneNumber,Address,PostalCode)VALUES(@EmailAddress,@Password,@ConfirmPassword,@FirstName,@LastName,@DateOfBirth,@RoleId,@DepartmentID,@PhoneNumber,@Address,@PostalCode)";
+                    string query = "INSERT INTO Users(EmailAddress,Password,FirstName,LastName,DateOfBirth,RoleId,DeptId,PhoneNumber,Address,PostalCode)VALUES(@EmailAddress,@Password,@FirstName,@LastName,@DateOfBirth,@RoleId,@DepartmentID,@PhoneNumber,@Address,@PostalCode)";
                     SqlCommand cmd = new SqlCommand(query, con);
 
                     cmd.Parameters.AddWithValue("@EmailAddress", txt_Email.Text.Trim());
-                    cmd.Parameters.AddWithValue("@Password", txt_NewPassword.Text.Trim());
-                    cmd.Parameters.AddWithValue("@ConfirmPassword", txt_NewConfirmPassword.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Password", CommonHelpers.Encrypt(txt_NewPassword.Text));
+                    //cmd.Parameters.AddWithValue("@ConfirmPassword", txt_NewConfirmPassword.Text.Trim());
                     cmd.Parameters.AddWithValue("@FirstName", txt_FirstName.Text.Trim());
                     cmd.Parameters.AddWithValue("@LastName", txt_LastName.Text.Trim());
                     cmd.Parameters.AddWithValue("@DateOfBirth", txt_DOB.Value.Trim()); //having html date textbox
@@ -84,20 +85,20 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                 }
             }
         }
-        private bool IsDuplicateEmail()
-        {
-            //bool IsDuplicateEmail;
-            SqlConnection con = new SqlConnection(strcon);
-            if (con.State == ConnectionState.Closed)
-            {
-                con.Open();
-            }
+        //private bool IsDuplicateEmail()
+        //{
+        //    //bool IsDuplicateEmail;
+        //    SqlConnection con = new SqlConnection(strcon);
+        //    if (con.State == ConnectionState.Closed)
+        //    {
+        //        con.Open();
+        //    }
 
-            //string query = "select * from Department";
-            string query = "select count(1) from  Users where EmailAddress='" + txt_Email.Text.Trim() + "'";
-            SqlCommand cmd = new SqlCommand(query, con);
-            int recordCount = Convert.ToInt32(cmd.ExecuteScalar());
-            return recordCount > 0;
-        }
+        //    //string query = "select * from Department";
+        //    string query = "select count(1) from  Users where EmailAddress='" + txt_Email.Text.Trim() + "'";
+        //    SqlCommand cmd = new SqlCommand(query, con);
+        //    int recordCount = Convert.ToInt32(cmd.ExecuteScalar());
+        //    return recordCount > 0;
+        //}
     }
 }
