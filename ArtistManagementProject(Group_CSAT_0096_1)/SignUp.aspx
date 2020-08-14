@@ -53,7 +53,7 @@
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="txt_ConfirmPassword" runat="server" placeholder="Confirm Password" TextMode="Password"></asp:TextBox>
                                 </div>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txt_Password" ErrorMessage="This field is required" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txt_ConfirmPassword" ErrorMessage="This field is required" ForeColor="Red"></asp:RequiredFieldValidator><br />
                                 <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txt_Password" ControlToValidate="txt_ConfirmPassword" ErrorMessage="Password must match" ForeColor="Red"></asp:CompareValidator>
                                 <br />
                                 <label>First Name</label>
