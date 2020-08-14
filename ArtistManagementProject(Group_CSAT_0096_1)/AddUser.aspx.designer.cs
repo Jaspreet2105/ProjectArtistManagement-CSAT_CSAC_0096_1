@@ -236,14 +236,5 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_ {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_Update;
-        
-        /// <summary>
-        /// btn_RequestElevatedAccess control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_RequestElevatedAccess;
     }
 }

@@ -101,7 +101,7 @@
                             <div class="col-md-6">
                                 <label>Phone Number</label>
                                 <div class="form-group">
-                                    <asp:TextBox MaxLength="10" CssClass="form-control" ID="txt_PhnNo" runat="server" placeholder="Phone Number" TextMode="Number"></asp:TextBox>
+                                    <asp:TextBox onkeypress="if(this.value.length==10) return false;"  MaxLength="10" CssClass="form-control" ID="txt_PhnNo" runat="server" placeholder="Phone Number" TextMode="Number"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txt_PhnNo" ErrorMessage="This field is required" ForeColor="Red"></asp:RequiredFieldValidator>
                                     <%--<asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="CustomValidator" ControlToValidate="txt_PhnNo"></asp:CustomValidator>--%>
                                 </div>
@@ -150,13 +150,13 @@
                            </div>
                         </center>
                             </div>
-                            <div class="col-6">
+                            <%--<div class="col-6">
                                 <center>
                            <div class="form-group">
                               <asp:Button class="btn btn-primary btn-block btn-lg" ID="btn_RequestElevatedAccess" runat="server" Text="Cancel" />
                            </div>
                         </center>
-                            </div>
+                            </div>--%>
                         </div>
 
                     </div>
