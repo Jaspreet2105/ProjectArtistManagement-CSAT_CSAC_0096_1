@@ -39,7 +39,7 @@
                                     <label>Password*</label>
                                     <div class="form-group">
                                         <asp:TextBox CssClass="form-control" ID="txt_Password" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
-                                        <asp:requiredfieldvalidator id="requiredfieldvalidator2" runat="server" errormessage="required" controltovalidate="txt_password" forecolor="red"></asp:requiredfieldvalidator>
+                                        <asp:requiredfieldvalidator id="requiredfieldvalidator2" runat="server" errormessage="Required" controltovalidate="txt_password" forecolor="red"></asp:requiredfieldvalidator>
                                     </div>
                                     <div class="form-group">
                                         <asp:Button class="btn btn-success btn-block btn-lg" ID="btn_LogIn" runat="server" Text="LogIn" OnClick="btn_LogIn_Click" />

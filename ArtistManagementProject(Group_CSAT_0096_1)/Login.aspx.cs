@@ -51,7 +51,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 cmd.Parameters.AddWithValue("@email", txt_UserName.Text.Trim());
-                cmd.Parameters.AddWithValue("@Password", CommonHelpers.Encrypt(txt_Password.Text));
+                cmd.Parameters.AddWithValue("@password", CommonHelpers.Encrypt(txt_Password.Text));
 
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
