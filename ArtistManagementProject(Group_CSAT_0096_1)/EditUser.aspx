@@ -18,7 +18,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                           <h4>Edit User</h4>
+                           <h4 id="h_editUser">Edit User</h4>
                            
                         </center>
                             </div>
@@ -101,7 +101,7 @@
                             <div class="col-md-6">
                                 <label>Phone Number</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="txt_PhnNo" runat="server" placeholder="Phone Number" TextMode="Number"></asp:TextBox>
+                                    <asp:TextBox onkeypress="if(this.value.length==10) return false;" CssClass="form-control" ID="txt_PhnNo" runat="server" placeholder="Phone Number" TextMode="Number"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txt_PhnNo" ErrorMessage="This field is required" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
@@ -168,4 +168,18 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            $('#ContentPlaceHolder1_btn_Update').attr("disabled", "disabled");
+            $("#form1 :input").change(function () {
+                $('#ContentPlaceHolder1_btn_Update').removeAttr("disabled");
+            });
+            $('#ContentPlaceHolder1_dropdown_AccessType, #ContentPlaceHolder1_dropdown_Department').change(function () {
+                $('#ContentPlaceHolder1_btn_Update').removeAttr("disabled");
+            });
+            if ("<%= Session["Type"] %>" == "View") {
+                $('#h_editUser').hide();
+            }
+        });
+    </script>
 </asp:Content>

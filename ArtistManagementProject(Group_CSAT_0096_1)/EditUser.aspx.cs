@@ -21,6 +21,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                 int UserID = Convert.ToInt32(Request.Params.Get("UserID"));
                 bool isView = Request.Params.Get("isView") != null ? Convert.ToBoolean(Request.Params.Get("isView")) : false;
                 SetUserData(UserID);
+                Session["Type"] = "Edit";
                 if (isView)
                     SetViewMode();
                 //dropdown_Department.DataSource = GetDepartmentData();
@@ -32,6 +33,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
         }
         private void SetViewMode()
         {
+            Session["Type"] = "View";
             txt_FirstName.ReadOnly = true;
             txt_LastName.ReadOnly = true;
             txt_DOB.Disabled = true;
@@ -86,6 +88,11 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
             txt_FullAddress.Text = Convert.ToString(data["Address"]);
             txt_Email.Text = Convert.ToString(data["EmailAddress"]);
             txt_PostalCode.Text = Convert.ToString(data["PostalCode"]);
+            if (Session["role"].Equals("2"))
+            {
+                dropdown_AccessType.Attributes.Add("disabled", "disabled");
+                dropdown_Department.Attributes.Add("disabled", "disabled");
+            }
 
         }
         protected void btn_Update_Click(object sender, EventArgs e)
