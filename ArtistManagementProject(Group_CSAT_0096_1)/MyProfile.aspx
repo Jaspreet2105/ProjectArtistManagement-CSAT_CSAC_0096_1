@@ -93,7 +93,7 @@
                             <div class="col-md-6">
                                 <label>Phone Number</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="txt_PhnNo" runat="server" placeholder="Phone Number" TextMode="Number"></asp:TextBox>
+                                    <asp:TextBox onkeypress="if(this.value.length==10) return false;" CssClass="form-control" ID="txt_PhnNo" runat="server" placeholder="Phone Number" TextMode="Number"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
@@ -164,6 +164,11 @@
         $(document).ready(function () {
             $('.sidebar').find('.active').eq(0).removeClass('active');
             $('#linkMyProfile').addClass("active");
+            $('#ContentPlaceHolder1_btn_Update').attr("disabled","disabled");
+            $("#form1 :input").change(function () {
+                $('#ContentPlaceHolder1_btn_Update').removeAttr("disabled");
+            });
+
         });
     </script>
 
