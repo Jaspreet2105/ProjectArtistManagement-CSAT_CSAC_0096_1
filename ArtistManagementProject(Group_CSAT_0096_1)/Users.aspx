@@ -44,8 +44,15 @@
                     style: 'multi'
                 }
             });
-
+            debugger;
+            if (<%= Session["role"] %> == 2) {
+                HideButtonsForManager();
+            }
         });
+        function HideButtonsForManager() {
+            $('#ContentPlaceHolder1_btn_Created').hide();
+            $('#btnDelete').hide();
+        }
         function GetTableSelectedItems(tableID = "myTable") {
             var table = $('#' + tableID).DataTable();
             return table.rows({ selected: true }).data();
