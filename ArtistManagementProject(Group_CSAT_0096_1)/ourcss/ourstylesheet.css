@@ -1,4 +1,5 @@
-﻿.footerlinks {
+﻿
+.footerlinks {
     color: #ffffff;
     text-decoration: none !important;
 }
@@ -31,9 +32,6 @@
     font-family: 'Josefin Sans', sans-serif;
 }
 
-body {
-    background-color: #f3f5f9;
-}
 
 .wrapper {
     display: flex;
@@ -129,12 +127,15 @@ body {
 }
 
 .Welcome {
-
-    font-family:cursive;
-    font-size:xx-large;
-
+    font-family: cursive;
+    font-size: xx-large;
 }
-
+/*img {
+    vertical-align: middle;
+    border-style: none;
+    height: 54px;
+    width: 146px;
+}*/
 /*MyProfileCSS*/
 
 
@@ -144,7 +145,3 @@ Users Table
 /*.example {
     th: nth-child(3), td:nth-child(3) display: none;
 }*/
-
-    
-                                     
-                                     

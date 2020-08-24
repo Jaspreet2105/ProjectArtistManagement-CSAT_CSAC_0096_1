@@ -26,7 +26,52 @@
     <script src="bootstrap/js/popper.min.js"></script>
     <%--bootstrap js --%>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
+        body {
+            background-image: url("./Images/home-image.jpg") !important;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .bg-image-custom {
+            /* The image used */
+            background-image: url("musician-349790_1920.jpg") !important;
+            /* Add the blur effect */
+            filter: blur(8px);
+            -webkit-filter: blur(8px);
+            /* Full height */
+            height: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Position text in the middle of the page/image */
+        .bg-text {
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+            color: white;
+            font-weight: bold;
+            border: 3px solid #f1f1f1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            width: 80%;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -37,7 +82,7 @@
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a class="navbar-brand" href="#">
                     <%--<img src="images/new AM logo.jpg" width="100" height="50" />--%>
-                     <div class="row">
+                    <div class="row">
                         <div class="col-md-6 col-sm-12">
                             ARTIST MANAGEMENT
                         </div>
@@ -58,9 +103,9 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="HomePage.aspx">Home</a>
                         </li>
-                        <li class="nav-item active">
+                        <%--<li class="nav-item active">
                             <a class="nav-link" href="ContactUs.aspx">Contact Us</a>
-                        </li>
+                        </li>--%>
 
                     </ul>
 
@@ -70,11 +115,11 @@
 
                         <li class="nav-item active">
                             <%--<asp:LinkButton class="nav-link" ID="LinkButton1" runat="server" PostBackUrl="~/Login.aspx">User Login</asp:LinkButton>--%>
-                            <a href="Login.aspx" class="nav-link"  id="btn_nav_Login" >User Login</a>
+                            <a href="Login.aspx" class="nav-link" id="btn_nav_Login">User Login</a>
                         </li>
                         <li class="nav-item active">
                             <%--<asp:LinkButton class="nav-link" ID="LinkButton2" runat="server" PostBackUrl="~/SignUp.aspx">Sign Up</asp:LinkButton>--%>
-                            <a href="SignUp.aspx" class="nav-link"  id="btn_nav_SignUp" >Sign Up</a>
+                            <a href="SignUp.aspx" class="nav-link" id="btn_nav_SignUp">Sign Up</a>
                         </li>
 
                     </ul>
@@ -108,6 +153,6 @@
         <!-- ./Footer -->
 
     </form>
-    
+
 </body>
 </html>
