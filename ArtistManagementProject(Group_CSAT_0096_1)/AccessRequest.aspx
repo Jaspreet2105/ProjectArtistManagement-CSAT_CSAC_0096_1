@@ -14,8 +14,8 @@
                 <%--<button value="Create" name="btnCreate" onclick="alert('Create')"></button>--%>
                 <%--<asp:LinkButton ID="btn_Approve" runat="server" CssClass="btn btn-small btn-primary"><i class="fas fa-thumbs-up"></i>&nbsp;Approve</asp:LinkButton>--%>
 
-                <button id="btn_Approve" class="btn btn-small btn-primary" onclick="return UpdateRequest('Approved')"><i class="fas fa-thumbs-up"></i>&nbsp;Approve</button>
-                <button id="btn_Decline" class="btn btn-small btn-primary" onclick="return UpdateRequest('Declined')"><i class="fas fa-thumbs-down"></i>&nbsp;Decline</button>
+                <button id="btn_Approve" class="btn btn-small btn-primary" onclick="return UpdateRequest('Approved')"><i class="far fa-check-circle"></i>&nbsp;Approve</button>
+                <button id="btn_Decline" class="btn btn-small btn-primary" onclick="return UpdateRequest('Declined')"><i class="far fa-times-circle"></i>&nbsp;Decline</button>
             </div>
         </div>
         <br />
@@ -29,13 +29,16 @@
     </div>
     <script>
         $(document).ready(function () {
+            // Active tab
             $('.sidebar').find('.active').eq(0).removeClass('active');
             $('#linkAccessRequest').addClass("active");
+            //To convert HTML table to jQuery DataTable using external library for  - Search, Sorting, Selection
             var table = $('#myTable').DataTable({
                 select: {
                     style: 'multi'
                 }
             });
+            //  To restrict the user not to select already approved/declined records
             table.on('select', function (e, dt, type, indexes) {
                 if (type === 'row') {
                     var rows = table.rows(indexes).nodes().to$();
@@ -46,6 +49,7 @@
                 }
             });
         });
+        // Get selected rows
         function GetTableSelectedItems(tableID = "myTable") {
             var table = $('#' + tableID).DataTable();
             return table.rows({ selected: true }).data();

@@ -1720,9 +1720,11 @@
     <Content Include="fontawesome\webfonts\fa-regular-400.svg" />
     <Content Include="fontawesome\webfonts\fa-solid-900.svg" />
     <Content Include="Images\AM logo.jpg" />
+    <Content Include="Images\home-image.jpg" />
     <Content Include="Images\LoginImg.jpg" />
-    <Content Include="Images\new AM logo.jpg" />
+    <Content Include="Images\musician-349790_1920.jpg" />
     <Content Include="Images\userimg.png" />
+    <Content Include="musician-349790_1920.jpg" />
     <Content Include="ourcss\dataTables.bootstrap4.min.css" />
     <Content Include="ourcss\ourstylesheet.css" />
     <Content Include="ourcss\select.dataTables.min.css" />

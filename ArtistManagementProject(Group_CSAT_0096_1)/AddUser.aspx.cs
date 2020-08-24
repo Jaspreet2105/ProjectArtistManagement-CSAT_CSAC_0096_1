@@ -50,6 +50,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
         {
             if (IsPostBack)
             {
+                // To check whether any user is already exists in the database with same EmailID
                 if (CommonHelpers.IsDuplicateEmail(txt_Email.Text))
                 {
                     lbl_EmailID.Text = "Email Already exists";
