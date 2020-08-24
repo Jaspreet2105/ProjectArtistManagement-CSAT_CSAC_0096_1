@@ -75,6 +75,7 @@
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="This field is required" ControlToValidate="txt_Dob" ForeColor="Red"></asp:RequiredFieldValidator>
                                 <br />
                                 <div class="form-group">
+                                    <%--To display captcha verification and to take input from the user to verify--%>
                                     <BotDetect:WebFormsCaptcha ID="ExampleCaptcha"
                                         UserInputID="CaptchaCode" runat="server" />
                                     <asp:Label ID="CaptchaLabel" runat="server" AssociatedControlID="CaptchaCode">
@@ -94,7 +95,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="Login.aspx"><< Back to LogIn </a>
+                <%--<a href="Login.aspx"><< Back to LogIn </a>--%>
                 <br>
                 <br>
             </div>

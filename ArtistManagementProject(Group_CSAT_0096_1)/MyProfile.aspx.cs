@@ -70,6 +70,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
             DataTable dt = new DataTable();
             ad.Fill(dt);
 
+            // Checking whether the user requested ADMIN for Elevated Access or not
             if (dt.Rows.Count > 0)
             {
                 //btn_RequestElevatedAccess.Visible = false;

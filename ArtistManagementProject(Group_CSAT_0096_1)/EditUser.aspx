@@ -101,7 +101,7 @@
                             <div class="col-md-6">
                                 <label>Phone Number</label>
                                 <div class="form-group">
-                                    <asp:TextBox onkeypress="if(this.value.length==10) return false;" CssClass="form-control" ID="txt_PhnNo" runat="server" placeholder="Phone Number" TextMode="Number"></asp:TextBox>
+                                    <asp:TextBox min="0" oninput="validity.valid||(value='');" onkeypress="if(this.value.length==10 || isNaN(this.value) || this.value < 0) return false;" CssClass="form-control" ID="txt_PhnNo" runat="server" placeholder="Phone Number" TextMode="Number"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txt_PhnNo" ErrorMessage="This field is required" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </div>
                             </div>

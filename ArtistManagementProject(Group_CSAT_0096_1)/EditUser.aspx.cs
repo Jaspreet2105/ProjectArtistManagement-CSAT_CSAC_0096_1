@@ -68,6 +68,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
             adapter.Fill(ds);
             con.Close();
 
+            // Get DataRow of the user from 1st row of the  1st table from the Dataset
             DataRow data = ds.Tables[0].Rows[0];
             dropdown_Department.DataSource = GetDepartmentData();
             dropdown_Department.DataTextField = "DName";

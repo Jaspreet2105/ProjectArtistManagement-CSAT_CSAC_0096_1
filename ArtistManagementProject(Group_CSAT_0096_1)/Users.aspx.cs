@@ -105,7 +105,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
             {
                 con.Open();
             }
-
+            //Get all users data except the ADMIN and the user himself
             string query = "select USR.UserId as 'User ID', USR.FirstName as 'First Name',USR.LastName as 'Last Name', R.RoleName as 'Access Type', DEPT.DName as 'Department' from Users USR LEFT JOIN Department DEPT ON[USR].DeptId = DEPT.DeptId LEFT JOIN Roles R on R.RoleId = USR.RoleId"
                 + " where USR.EmailAddress <> '" + Convert.ToString(Session["UserName"]) + "'  and  USR.RoleId <> 1";
             SqlCommand cmd = new SqlCommand(query, con);

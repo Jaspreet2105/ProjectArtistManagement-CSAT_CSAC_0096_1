@@ -12,6 +12,7 @@
     </div>
     <script>
         $(document).ready(function () {
+            // To make current tab as active in the side bar
             $('.sidebar').find('.active').eq(0).removeClass('active');
             $('#linkHome').addClass("active");
         });

@@ -37,8 +37,10 @@
     </div>
     <script>
         $(document).ready(function () {
+            // To make current tab as active in the side bar
             $('.sidebar').find('.active').eq(0).removeClass('active');
             $('#linkUsers').addClass("active");
+            //To convert HTML table to jQuery DataTable using external library for  - Search, Sorting, Selection
             var table = $('#myTable').DataTable({
                 select: {
                     style: 'multi'
@@ -49,14 +51,19 @@
                 HideButtonsForManager();
             }
         });
+        // TO hide Create and Delete buttons for Manager Login
         function HideButtonsForManager() {
+            //document.getElementById('ContentPlaceHolder1_btn_Created').style.display = "none";
             $('#ContentPlaceHolder1_btn_Created').hide();
             $('#btnDelete').hide();
         }
+        // To get selected rows from the DataTable
         function GetTableSelectedItems(tableID = "myTable") {
             var table = $('#' + tableID).DataTable();
             return table.rows({ selected: true }).data();
         }
+        // To redirect the user to Edit/View page
+        // isView is true in VIEW case
         function EditPage(isView) {
             var obj = GetTableSelectedItems();
             if (obj.length == 0) {

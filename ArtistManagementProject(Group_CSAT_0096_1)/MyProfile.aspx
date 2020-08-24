@@ -11,7 +11,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                           <img width="100px" src="images/userimg.png"/>
+                           <img class="avtar-user" width="100px" src="images/userimg.png"/>
                         </center>
                             </div>
                         </div>
@@ -93,7 +93,7 @@
                             <div class="col-md-6">
                                 <label>Phone Number</label>
                                 <div class="form-group">
-                                    <asp:TextBox onkeypress="if(this.value.length==10) return false;" CssClass="form-control" ID="txt_PhnNo" runat="server" placeholder="Phone Number" TextMode="Number"></asp:TextBox>
+                                    <asp:TextBox min="0" oninput="validity.valid||(value='');" onkeypress="if(this.value.length==10 || isNaN(this.value) || this.value < 0) return false;" CssClass="form-control" ID="txt_PhnNo" runat="server" placeholder="Phone Number" TextMode="Number"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
@@ -138,7 +138,7 @@
                             <div class="col-6">
                                 <center>
                            <div class="form-group">
-                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="btn_Update" runat="server" Text="Update" OnClick="btn_Update_Click" />
+                              <asp:Button class="btn btn-secondary btn-block btn-lg" ID="btn_Update" runat="server" Text="Update" OnClick="btn_Update_Click" />
                            </div>
                         </center>
                             </div>
@@ -153,7 +153,7 @@
                         </div>
 
                     </div>
-                    <a href="HomePage.aspx"><< Back to Home</a><br>
+                    <a href="HomePage.aspx"><< Back to Home</a><br />
                     <br>
                 </div>
 
@@ -167,8 +167,9 @@
             $('#ContentPlaceHolder1_btn_Update').attr("disabled","disabled");
             $("#form1 :input").change(function () {
                 $('#ContentPlaceHolder1_btn_Update').removeAttr("disabled");
+                $('#ContentPlaceHolder1_btn_Update').removeClass('btn-secondary');
+                $('#ContentPlaceHolder1_btn_Update').addClass('btn-primary');
             });
-
         });
     </script>
 

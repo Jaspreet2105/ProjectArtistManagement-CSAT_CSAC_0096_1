@@ -15,7 +15,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                           <img width="150px" src="images/userimg.png"/>
+                           <img class="avtar-user" width="150px" src="images/userimg.png"/>
                         </center>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="HomePage.aspx"><< Back to Home</a><br>
+                <%--<a href="HomePage.aspx"><< Back to Home</a><br>--%>
                 <asp:PlaceHolder ID="UserAdded" runat="server" />
                 <br>
             </div>

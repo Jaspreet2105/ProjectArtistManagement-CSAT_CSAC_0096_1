@@ -29,11 +29,14 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                 if (IsPostBack)
                 {
                     string userInput = CaptchaCode.Text;
+                    //validate the user input against the actual captcha code given by the library
                     bool isHuman = ExampleCaptcha.Validate(userInput);
                     CaptchaCode.Text = null; // clear previous user input
 
+                    //Continue further if the client is not a ROBOT
                     if (isHuman)
                     {
+                        // Checking for Email ID duplication
                         if (CommonHelpers.IsDuplicateEmail(txt_Email.Text))
                         {
                             lbl_EmailID.Text = "Email Already exists";
@@ -41,6 +44,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                         }
                         else
                         {
+                            // If everything looks fine, store the user data in "Users" table
                             CaptchaErrorLabel.Visible = false;
                             // TODO: proceed with protected action
                             SqlConnection con = new SqlConnection(strcon);
@@ -64,6 +68,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                             con.Close();
 
                             //Response.Write("<script>alert('Registration Successful. ');</script>");
+                            // To show Registration Successful message after signup 
                             Session["UserSignUp"] = true;
                             Response.Redirect("Login.aspx");
                         }

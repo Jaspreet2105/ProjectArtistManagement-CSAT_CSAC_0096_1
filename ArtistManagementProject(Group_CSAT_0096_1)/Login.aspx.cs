@@ -19,6 +19,8 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
         protected void Page_Load(object sender, EventArgs e)
 
         {
+            // To show Registration Successful message after signup 
+            // If Login page was redirected from SignUp.aspx page, then show "Registration Successful" message
             if (Convert.ToBoolean(Session["UserSignUp"]))
             {
                 StringBuilder userHTML = new StringBuilder();
@@ -54,6 +56,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                 cmd.Parameters.AddWithValue("@password", CommonHelpers.Encrypt(txt_Password.Text));
 
                 SqlDataReader dr = cmd.ExecuteReader();
+                // if the user is valid - add user details to session
                 if (dr.HasRows)
                 {
                     if (dr.Read())
@@ -72,7 +75,7 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                 }
                 else
                 {
-
+                    // Show alert message if user is invalid
                     Response.Write("<script>alert('Invalid User');</script>");
                 }
 
