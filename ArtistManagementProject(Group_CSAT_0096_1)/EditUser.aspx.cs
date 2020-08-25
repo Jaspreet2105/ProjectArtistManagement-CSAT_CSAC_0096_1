@@ -73,9 +73,10 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
             dropdown_Department.DataSource = GetDepartmentData();
             dropdown_Department.DataTextField = "DName";
             dropdown_Department.DataValueField = "DeptId";
+            dropdown_Department.DataBind();
             if (data["DeptId"] != null && !string.IsNullOrEmpty(Convert.ToString(data["DeptId"])))
                 dropdown_Department.SelectedValue = Convert.ToString(data["DeptId"]);
-            dropdown_Department.DataBind();
+
 
             //if (data["RoleId"] != null)
             dropdown_AccessType.SelectedValue = Convert.ToString(data["RoleId"]);
@@ -124,9 +125,12 @@ namespace ArtistManagementProject_Group_CSAT_0096_1_
                                 + " ,DateOfBirth = '" + DOB + "' "
                                 + " ,PhoneNumber = '" + phoneNumber + "' "
                                 + " ,Address = '" + fullAddress + "' "
-                                + " ,PostalCode = '" + postalCode + "' "
-                                + " ,RoleId = " + accessType
-                                + " ,DeptId = " + departmentType;
+                                + " ,PostalCode = '" + postalCode + "' ";
+                if (Session["role"].Equals("1"))
+                {
+                    update += " ,RoleId = " + accessType
+                              + " ,DeptId = " + departmentType;
+                }
                 if (!string.IsNullOrEmpty(newPassword))
                     update += " ,Password= '" + CommonHelpers.Encrypt(newPassword) + "' ";
                 string where = " where EmailAddress = '" + emailAddress + "' ";

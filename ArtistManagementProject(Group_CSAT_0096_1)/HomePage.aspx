@@ -19,12 +19,11 @@
         <h1>ARTIST MANAGEMENT</h1>
         <%--<hr style="color:white"/>--%>
         <%--<h2 style="">I am John Doe</h2>--%>
-        <p style="font-size: 1.2em;">Artist Management is one of the leading Management companies in CANADA.We help artists at every level to build sustainable careers with trusted creative,collaborating,networking and Education.  </p>
+        <p style="font-size: 1.3em;">Artist Management is one of the leading Management companies in CANADA.We help artists at every level to build sustainable careers with trusted creative,collaborating,networking and Education.  </p>
         <br />
         <%--offset-3--%>
         <center>
 
-        
         <div style="margin-left:30%" class="row">
             <div class="col-md-3">
                 <a href="Login.aspx" class="btn btn-success btn-block btn-lg"  id="btnLogin" >Login</a>
